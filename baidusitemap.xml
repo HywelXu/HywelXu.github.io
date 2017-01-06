@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/06/Hexo%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2017-01-06T12:02:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo安装过程简单总结</title>
+        <pubTime>2017-01-06T08:30:36.000Z</pubTime>
+        
+        <tag>Other</tag>
+         
+         
+           
+             
+              <breadCrumb title="Other" url="http://yoursite.com/categories/Other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/06/hello-world/</loc>
+    <lastmod>2017-01-06T11:34:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-01-06T11:34:07.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>
