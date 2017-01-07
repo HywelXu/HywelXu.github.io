@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android优化VS内存优化 | Coding Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android优化VS内存优化题记
+
+应用的生存期绝大部分时间都用于处理内存中的数据，虽然我们大多数人都意识到在手机上要尽可能少使用内存，但并非所有人都认识到了内存使用对性能的影响。所以，下面我们来讨论一下。
+
+一、谈谈移动设备中的内存
+无论分配给应用多少内存，它都不会满足。
+
+
+移动设备和传统的电脑有两个很大的差异；
+物理内存大小
+虚拟内存交换能力
+
+
+
+
+要在一定设备上使用尽可能少的内存，既是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android优化VS内存优化">
+<meta property="og:url" content="http://yoursite.com/2016/08/04/Andoird优化VS内存优化/index.html">
+<meta property="og:site_name" content="Coding Life">
+<meta property="og:description" content="Android优化VS内存优化题记
+
+应用的生存期绝大部分时间都用于处理内存中的数据，虽然我们大多数人都意识到在手机上要尽可能少使用内存，但并非所有人都认识到了内存使用对性能的影响。所以，下面我们来讨论一下。
+
+一、谈谈移动设备中的内存
+无论分配给应用多少内存，它都不会满足。
+
+
+移动设备和传统的电脑有两个很大的差异；
+物理内存大小
+虚拟内存交换能力
+
+
+
+
+要在一定设备上使用尽可能少的内存，既是">
+<meta property="og:updated_time" content="2016-08-08T08:51:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android优化VS内存优化">
+<meta name="twitter:description" content="Android优化VS内存优化题记
+
+应用的生存期绝大部分时间都用于处理内存中的数据，虽然我们大多数人都意识到在手机上要尽可能少使用内存，但并非所有人都认识到了内存使用对性能的影响。所以，下面我们来讨论一下。
+
+一、谈谈移动设备中的内存
+无论分配给应用多少内存，它都不会满足。
+
+
+移动设备和传统的电脑有两个很大的差异；
+物理内存大小
+虚拟内存交换能力
+
+
+
+
+要在一定设备上使用尽可能少的内存，既是">
+  
+    <link rel="alternate" href="/atom.xml" title="Coding Life" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="http://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Life</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">风在水墨里拂柳 云在油彩里飘柔</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories">目录</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+  <script>
+    
+    var number_of_banners = 6;
+    var randnum = Math.floor(Math.random() * number_of_banners + 1);
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + randnum + ".jpg)";
+    
+</script>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Andoird优化VS内存优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/04/Andoird优化VS内存优化/" class="article-date">
+  <time datetime="2016-08-04T02:43:08.000Z" itemprop="datePublished">2016-08-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/coding-note/">coding,note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android优化VS内存优化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Android优化VS内存优化"><a href="#Android优化VS内存优化" class="headerlink" title="Android优化VS内存优化"></a>Android优化VS内存优化</h2><p>题记</p>
+<blockquote>
+<p>应用的生存期绝大部分时间都用于处理内存中的数据，虽然我们大多数人都意识到在手机上要尽可能少使用内存，但并非所有人都认识到了内存使用对性能的影响。所以，下面我们来讨论一下。</p>
+</blockquote>
+<h3 id="一、谈谈移动设备中的内存"><a href="#一、谈谈移动设备中的内存" class="headerlink" title="一、谈谈移动设备中的内存"></a>一、谈谈移动设备中的内存</h3><ul>
+<li>无论分配给应用多少内存，它都不会满足。</li>
+</ul>
+<ul>
+<li>移动设备和传统的电脑有两个很大的差异；<ul>
+<li>物理内存大小</li>
+<li>虚拟内存交换能力</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>要在一定设备上使用尽可能少的内存，既是经验也是常识。<ul>
+<li>好处：<ul>
+<li>减少碰到oom异常的风险</li>
+<li>提升性能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>性能取决于以下三个因素( 我们会在下面讲解)<ul>
+<li>CPU如何操纵特定的数据类型</li>
+<li>数据和指令需要占用多少存储空间</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、采用合适的数据类型"><a href="#二、采用合适的数据类型" class="headerlink" title="二、采用合适的数据类型"></a>二、采用合适的数据类型</h3><ul>
+<li>使用long比short和int慢。同样，只使用double及混用float和double，比只用float慢。</li>
+</ul>
+<p><strong>注意：由于并不是所有指令的执行时间都相同，再加上cpu很复杂，所以并不能推测出具体的时间。</strong></p>
+<ul>
+<li><p>short数组排序远比其他类型数组快</p>
+<ul>
+<li><p>原因： short使用计数排序，算法复杂度是线性的</p>
+<p>而int和long使用快速排序算法</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>处理64位类型(long或double)比处理32位类型慢</li>
+</ul>
+<p>总的来说，<br>就是:</p>
+<ol>
+<li>处理大量数据时，使用可以满足要求的最小数据类型</li>
+<li>避免类型转换。尽量保持类型一致，尽可能在计算中使用单一类型。</li>
+<li>如果有必要取得更好的性能，推倒重来，但要认真处理。</li>
+</ol>
+<h3 id="三、你需要知道的访问内存"><a href="#三、你需要知道的访问内存" class="headerlink" title="三、你需要知道的访问内存"></a>三、你需要知道的访问内存</h3><ol>
+<li><p>操纵较大类型的数据代价较高，因为用到了指令较多。 直观的来说，指令越多性能越差，CPU需要做很多额外的工作</p>
+</li>
+<li><p>此外、代码和数据都驻留在内存中，访问内存本身也有开销。 因为访问内存会产生一些开销，CPU会把最近访问的内容缓存起来，无论是内存读还是写。</p>
+</li>
+<li><p>CPU通常使用两级缓存或者三级缓存：</p>
+<ul>
+<li>一级缓存</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>二级缓存</li>
+</ul>
+<ul>
+<li><p>三级缓存(一般用于服务器机或游戏机器)</p>
+<p> ​</p>
+</li>
+</ul>
+<ol>
+<li>当数据或指令在缓存中找不到时，就是缓存未命中。这是需要从内存中读取数据或指令。</li>
+</ol>
+<p>缓存未命中几种情况：</p>
+<ul>
+<li>指令缓存读未命中</li>
+</ul>
+<ul>
+<li>数据缓存读未命中</li>
+</ul>
+<ul>
+<li>写未命中</li>
+</ul>
+<p><strong>注意：第一种缓存未命中最关键，因为CPU要一直等到从内存中读出指令，才可以继续执行。</strong></p>
+<p>另外：现代CPU都能够自动预取内存，为了避免或者只说是限制了缓存未命中情况的发生。</p>
+<h3 id="四、通过垃圾收集管理内存"><a href="#四、通过垃圾收集管理内存" class="headerlink" title="四、通过垃圾收集管理内存"></a>四、通过垃圾收集管理内存</h3><p>1、Java的一个非常重要的优点是垃圾收集</p>
+<p>原理： 不再使用的对象内存会被垃圾收集器释放(回收)。<br>注意：还是会出现内存泄露的情况。<br>垃圾收集器会帮你管理内存，它做的不仅仅是释放不用的内存。<br>2、内存泄漏：</p>
+<p>只有当某个对象不再被引用时，它的内存才会被回收，当该被释放的对象引用仍然存在时就会发生内存泄漏。<br>一个典型例子就是，由于屏幕旋转，整个Activity对象会有泄露 很严重！因为Activity对象占用相当多内存。<br>3、 避免内存泄漏方案。(大多数只能用来分析，并不会告诉你是否内存泄漏)</p>
+<p>DDMS视图里面的Heap与Tracker 可以跟踪内存使用和分配情况。 AS里面的monitor 有内存、网络、等四个视图<br>StrictMode类 会将检测到的违规操作，将结果写到日志中。 只能用来分析，并不会告诉你是否内存泄漏<br>OneAPM 用过，并且也去面试过，很不错。</p>
+<h3 id="五、通过Java中的引用来更好的管理"><a href="#五、通过Java中的引用来更好的管理" class="headerlink" title="五、通过Java中的引用来更好的管理"></a>五、通过Java中的引用来更好的管理</h3><p>1、内存释放是垃圾收集器的一个重要的特性，在垃圾收集器中它的作用比在内存管理系统中大得多。</p>
+<p>2、Java定义了4中类型的引用</p>
+<ul>
+<li><p>强（Strong）:</p>
+<pre><code>其实就是普通的创建对象，保持无用对象的强引用可能会导致内存泄漏
+</code></pre></li>
+<li><p>软（Soft）:</p>
+<pre><code>其实软引用和弱引用在本质上是类似的，软引用适用于缓存，它可以自动删除缓存中的条目
+</code></pre></li>
+<li><p>虚（Phantom）：</p>
+<pre><code>几乎很少用到
+</code></pre></li>
+</ul>
+<ul>
+<li><p>弱（Weak）：</p>
+<pre><code>保障下次垃圾回收时基本会收走
+</code></pre></li>
+</ul>
+<p>3、当需要缓存或映射时，你不必实现类似的内存管理系统。精心规划引用后，大部分工作可以放心地交给垃圾收集器完成。</p>
+<p>4、 垃圾收集<br>垃圾收集可能会再不定的时间触发，你几乎无法控制它的时机。<br>但是有时，你可以通过System.gc( );提醒一下Android，<br>虽然如此，垃圾收集机制发生时间最终时间是不由你确定的。</p>
+<p>5、 垃圾收集发生在应用的主线程，所以：</p>
+<ul>
+<li>很可能降低响应速度和性能。</li>
+</ul>
+<ul>
+<li>在及时游戏中会出现丢帧，因为有太多时间花在垃圾收集上。</li>
+</ul>
+<ul>
+<li>Andorid2.3有了转机，垃圾收集工作转移到了一个单独的线程。比以前的Android版本好太多了</li>
+</ul>
+<h3 id="六、通过系统的API可以了解、管理内存"><a href="#六、通过系统的API可以了解、管理内存" class="headerlink" title="六、通过系统的API可以了解、管理内存"></a>六、通过系统的API可以了解、管理内存</h3><p>1、 Android定义了几个API，你可以用他们来了解系统中还剩多少可用内存和用了多少内存</p>
+<p>ActivityManager的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getMomoryInfo();    </div><div class="line"></div><div class="line">getMomoryClass();    </div><div class="line"></div><div class="line">getLargeMeoryClass();</div></pre></td></tr></table></figure>
+<p>Debug的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dumpHprofData();</div><div class="line"></div><div class="line">getNativeHeapAllocatedSize();</div><div class="line"></div><div class="line">getNativeHeapSize();</div></pre></td></tr></table></figure>
+<p>提示：<br><strong>在应用的manifest文件中把android：largeHeap设为true，就可以让应用使用更大的堆。</strong></p>
+<h3 id="七、当内存少的时候可以这样处理"><a href="#七、当内存少的时候可以这样处理" class="headerlink" title="七、当内存少的时候可以这样处理"></a>七、当内存少的时候可以这样处理</h3><p>ComponentCallbacks接口定义了API onLowMomory( ),它对所有应用组&gt; 件都是相同的。当它被调用时，组件基本会被要求释放那些并不会用到的内存。<br>可以被释放的内容：</p>
+<ul>
+<li>缓存或缓存条目（如使用强引用的LruCache）</li>
+</ul>
+<ul>
+<li>可以再次按需生成的位图对象</li>
+</ul>
+<ul>
+<li>不可见的布局对象</li>
+</ul>
+<ul>
+<li>数据库对象</li>
+</ul>
+<h3 id="八、通过5R法来对ANDROID内存进行优化："><a href="#八、通过5R法来对ANDROID内存进行优化：" class="headerlink" title="八、通过5R法来对ANDROID内存进行优化："></a>八、通过5R法来对ANDROID内存进行优化：</h3><p>1.Reckon（计算）</p>
+<blockquote>
+<p>首先需要知道你的app所消耗内存的情况，知己知彼才能百战不殆</p>
+<p>通过上文提到的工具进行查看消耗，这里再给大家推荐一个工具</p>
+<p>Memory Analysis Tool（MAT）：</p>
+<p>可以转换成饼图和表格，直观、好用。</p>
+</blockquote>
+<p>2.Reduce（减少）</p>
+<blockquote>
+<p>Reduce的意思就是减少，直接减少内存的使用是最有效的优化方式。</p>
+<p>例如：</p>
+<p>Bitmap：</p>
+<p>Bitmap是内存消耗大户，绝大多数的OOM崩溃都是在操作Bitmap时产生的，下面来看看几个处理图片的方法：</p>
+</blockquote>
+<p>图片显示：</p>
+<blockquote>
+<p>例如在列表中仅用于预览时加载缩略图（thumbnails ）。</p>
+<p>只有当用户点击具体条目想看详细信息的时候，这时另启动一个fragment／activity／对话框等等，去显示整个图片</p>
+</blockquote>
+<p>图片大小：</p>
+<blockquote>
+<p>使用BitmapFactory.Options设置inSampleSize, 这样做可以减少对系统资源的要求。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">BitmapFactory.Options bitmapFactoryOptions = <span class="keyword">new</span> BitmapFactory.Options();  </div><div class="line"> bitmapFactoryOptions.inJustDecodeBounds = <span class="keyword">true</span>;  </div><div class="line"> bitmapFactoryOptions.inSampleSize = <span class="number">2</span>;  </div><div class="line"> <span class="comment">// 这里一定要将其设置回false，因为之前我们将其设置成了true    </span></div><div class="line"></div><div class="line"> <span class="comment">// 设置inJustDecodeBounds为true后，decodeFile并不分配空间，即，BitmapFactory解码出来的Bitmap为Null,但可计算出原始图片的长度和宽度    </span></div><div class="line"></div><div class="line"> options.inJustDecodeBounds = <span class="keyword">false</span>;  </div><div class="line"></div><div class="line"> Bitmap bmp = BitmapFactory.decodeFile(sourceBitmap, options);</div></pre></td></tr></table></figure>
+<p>图片像素：</p>
+<blockquote>
+<p>Android中图片有四种属性，分别是：</p>
+<p>ALPHA<em>8：每个像素占用1byte内存</em></p>
+<p>_ARGB_4444：每个像素占用2byte内存</p>
+<p>ARGB<em>8888：每个像素占用4byte内存 （默认）</em></p>
+<p>RGB_565：每个像素占用2byte内存</p>
+</blockquote>
+<p>Android默认的颜色模式为ARGB_8888，这个颜色模式色彩最细腻，显示质量最高。但同样的，占用的内存也最大。 所以在对图片效果不是特别高的情况下使用RGB_565（565没有透明度属性），如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">BitmapreadBitMap</span><span class="params">(Contextcontext, intresId)</span> </span>&#123;  </div><div class="line"></div><div class="line">     BitmapFactory.Optionsopt = newBitmapFactory.Options();  </div><div class="line">     opt.inPreferredConfig = Bitmap.Config.RGB_565;  </div><div class="line">     opt.inPurgeable = <span class="keyword">true</span>;  </div><div class="line">     opt.inInputShareable = <span class="keyword">true</span>;  </div><div class="line">     <span class="comment">//获取资源图片   </span></div><div class="line">     InputStream is = context.getResources().openRawResource(resId);  </div><div class="line">     <span class="keyword">return</span> BitmapFactory.decodeStream(is, <span class="keyword">null</span>, opt);  </div><div class="line"></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>图片回收：</p>
+<blockquote>
+<p>使用Bitmap过后，就需要及时的调用Bitmap.recycle()方法来释放Bitmap占用的内存空间，而不要等Android系统来进行释放。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bitmap.recycle();  </div><div class="line">bitmap = <span class="keyword">null</span>;</div></pre></td></tr></table></figure>
+<p>捕获异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Bitmap bitmap = <span class="keyword">null</span>;  </div><div class="line"></div><div class="line"> <span class="keyword">try</span> &#123;  </div><div class="line">    <span class="comment">// 实例化Bitmap  </span></div><div class="line">    bitmap = BitmapFactory.decodeFile(path);  </div><div class="line"> &#125; <span class="keyword">catch</span> (OutOfMemoryError e) &#123;  </div><div class="line">     <span class="comment">// 捕获OutOfMemoryError，避免直接崩溃  </span></div><div class="line">&#125;  </div><div class="line"> <span class="keyword">if</span> (bitmap == <span class="keyword">null</span>) &#123;  </div><div class="line">     <span class="comment">// 如果实例化失败 返回默认的Bitmap对象  </span></div><div class="line">     <span class="keyword">return</span> defaultBitmapMap;  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>修改引用：</p>
+<blockquote>
+<p>如果只是想避免OutOfMemory异常的发生，则可以使用软引用。如果对于应用的性能更在意，想尽快回收一些占用内存比较大的对象，则可以使用弱引用。</p>
+<p>另外，和弱引用功能类似的是WeakHashMap。WeakHashMap对于一个给定的键，其映射的存在并不阻止垃圾回收器对该键的回收，回收以后，其条目从映射中有效地移除。WeakHashMap使用ReferenceQueue实现的这种机制。</p>
+</blockquote>
+<h3 id="3-Reuse（重用）"><a href="#3-Reuse（重用）" class="headerlink" title="3.Reuse（重用）"></a>3.Reuse（重用）</h3><blockquote>
+<p>核心思路就是将已经存在的内存资源重新使用而避免去创建新的，最典型的使用就是缓存（Cache）和池（Pool）。</p>
+</blockquote>
+<h3 id="4-Recycle（回收）"><a href="#4-Recycle（回收）" class="headerlink" title="4.Recycle（回收）"></a>4.Recycle（回收）</h3><p>Thread（线程）回收：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Thread t = <span class="keyword">new</span> Thread() &#123;  </div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </div><div class="line">         <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;  </div><div class="line">             <span class="keyword">try</span> &#123;  </div><div class="line">                 Thread.sleep(<span class="number">1000</span>);  </div><div class="line">                 System.out.println(<span class="string">"thread is running..."</span>);  </div><div class="line">             &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </div><div class="line">    </div><div class="line">             &#125;  </div><div class="line">        &#125;  </div><div class="line">     &#125;  </div><div class="line"></div><div class="line"> &#125;;  </div><div class="line"></div><div class="line"> t.start();  </div><div class="line"></div><div class="line"> t = <span class="keyword">null</span>;  </div><div class="line"></div><div class="line"> System.gc();</div></pre></td></tr></table></figure>
+<p>Cursor（游标）回收：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span>    </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;          </div><div class="line"></div><div class="line">     <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; mAdapter.getCurosr() != <span class="keyword">null</span>) &#123;    </div><div class="line">         mAdapter.getCursor().close();    </div><div class="line">    &#125;    </div><div class="line">     <span class="keyword">super</span>.onDestroy();     </div><div class="line"></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>还有接收器、流等等。</p>
+<h3 id="5-Review（检查）"><a href="#5-Review（检查）" class="headerlink" title="5.Review（检查）"></a>5.Review（检查）</h3><p>Code Review（代码检查）：</p>
+<blockquote>
+<p>Code Review主要检查代码中存在的一些不合理或可以改进优化的地方，</p>
+</blockquote>
+<p>UI Review（视图检查）：</p>
+<blockquote>
+<p>Android对于视图中控件的布局渲染等会消耗很多的资源和内存，所以这部分也是我们需要注意的。</p>
+<ul>
+<li>减少视图层级;</li>
+<li>减少视图层级可以有效的减少内存消耗，因为视图是一个树形结构，每次刷新和渲染都会遍历一次。</li>
+</ul>
+</blockquote>
+<p>hierarchyviewer：</p>
+<blockquote>
+<p>想要减少视图层级首先就需要知道视图层级，所以下面介绍一个SDK中自带的一个非常好用的工具hierarchyviewer。</p>
+<p>你可以在下面的地址找到它：your sdk path\sdk\tools</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>删除对象应该仔细考虑，因为重新创建是需要开销的。</p>
+<p>如果没有释放出足够的内存可能会导致Android系统更激进的行为(如杀死进程)。</p>
+<p>如果应用进程被杀掉了，用户下次使用又要从头开始。因此，应用不仅要表现出色，也要释放尽可能多的资源。 代码中推迟初始化是一个好的方式。</p>
+<p>内存在嵌入式设备上是稀缺资源。尽管今天的手机和平板电脑的内存越来越多， 但这些设备也在运行越来越复杂的系统和应用。有效的使用内存， 不仅可以使应用在旧设备上运行时占用较少的内存， 还可以让程序跑的更快。请记住，应用对内存的需求是无止境的。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/04/Andoird优化VS内存优化/" data-id="cixn8mohc00072ds65xyt6qsq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/18/自定义View的简单总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自定义View的简单总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/04/如何在-Android-中避免创建不必要的对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">如何在 Android 中避免创建不必要的对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding-note/">coding,note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/06/Hexo安装过程简单总结/">Hexo安装过程简单总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/自定义View的简单总结/">自定义View的简单总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/04/Andoird优化VS内存优化/">Android优化VS内存优化</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/04/如何在-Android-中避免创建不必要的对象/">如何在 Android 中避免创建不必要的对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/">如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Hywel Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/categories" class="mobile-nav-link">目录</a>
+  
+    <a href="/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

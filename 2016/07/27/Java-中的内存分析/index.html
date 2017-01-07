@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java 中的内存分析 | Coding Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="寄存器​    寄存器是存在 CPU 上的，而内存是挂在数据总线的。数据总线就是用来决定传输数据的大小。而就是通过在寄存器上的地址来寻找相应内存。总的来说，寄存器和内存是两个东西，程序是无法来控制寄存器的。主要涉及到运行程序涉及到的就是下面这些栈（stack）、堆（heap）、静态域、常量池。
+栈​    栈中主要存放一些基本类型的变量（ int, short, long, byte,float,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 中的内存分析">
+<meta property="og:url" content="http://yoursite.com/2016/07/27/Java-中的内存分析/index.html">
+<meta property="og:site_name" content="Coding Life">
+<meta property="og:description" content="寄存器​    寄存器是存在 CPU 上的，而内存是挂在数据总线的。数据总线就是用来决定传输数据的大小。而就是通过在寄存器上的地址来寻找相应内存。总的来说，寄存器和内存是两个东西，程序是无法来控制寄存器的。主要涉及到运行程序涉及到的就是下面这些栈（stack）、堆（heap）、静态域、常量池。
+栈​    栈中主要存放一些基本类型的变量（ int, short, long, byte,float,">
+<meta property="og:image" content="http://yoursite.com/images/memory.png">
+<meta property="og:updated_time" content="2016-07-27T07:24:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 中的内存分析">
+<meta name="twitter:description" content="寄存器​    寄存器是存在 CPU 上的，而内存是挂在数据总线的。数据总线就是用来决定传输数据的大小。而就是通过在寄存器上的地址来寻找相应内存。总的来说，寄存器和内存是两个东西，程序是无法来控制寄存器的。主要涉及到运行程序涉及到的就是下面这些栈（stack）、堆（heap）、静态域、常量池。
+栈​    栈中主要存放一些基本类型的变量（ int, short, long, byte,float,">
+<meta name="twitter:image" content="http://yoursite.com/images/memory.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Coding Life" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="http://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Life</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">风在水墨里拂柳 云在油彩里飘柔</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/categories">目录</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+  <script>
+    
+    var number_of_banners = 6;
+    var randnum = Math.floor(Math.random() * number_of_banners + 1);
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + randnum + ".jpg)";
+    
+</script>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java-中的内存分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/27/Java-中的内存分析/" class="article-date">
+  <time datetime="2016-07-27T06:12:13.000Z" itemprop="datePublished">2016-07-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/coding/">coding</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 中的内存分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>​    寄存器是存在 CPU 上的，而内存是挂在数据总线的。数据总线就是用来决定传输数据的大小。而就是通过在寄存器上的地址来寻找相应内存。总的来说，寄存器和内存是两个东西，程序是无法来控制寄存器的。主要涉及到运行程序涉及到的就是下面这些栈（stack）、堆（heap）、静态域、常量池。</p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>​    栈中主要存放一些基本类型的变量（ int, short, long, byte,float, double, boolean, char ）和对象引用。 对象是不会放置在里面的，而是存放在堆（new 出来的对象）或者常量池中（字符串常量对象存放在常量池中。</p>
+<ul>
+<li>栈内存是线程私有的，其生命周期和线程相同；</li>
+<li>栈内数据共享；</li>
+<li>存放基本类型的变量数据，局部变量和对象的引用。</li>
+</ul>
+<h4 id="数据共享"><a href="#数据共享" class="headerlink" title="数据共享"></a>数据共享</h4><p>​    这个数据共享主要也是由于引用的是地址来决定的，举个例子：char str1=”str1”;char str2=”str1”;这时候再次声明Str2，同时指定两个不同的引用而相同的变量;这时候并不需要重新开辟另外一份内存，只需要两者都指向相同的地址就可以了。这样数据共享带来的就是内存上的节省。</p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>​    存放的主要是动态生成的对象和数组（比如存放所有new出来的对象）。注意创建出来的对象只包含属于各自的成员变量，并不包括成员方法。因为同一个类的对象拥有各自的成员变量，存储在各自的堆中，但是他们共享该类的方法，并不是每创建一个对象就把成员方法复制一次。从这个存放的数据可以知道，这个堆里面存放的是，在程序运行的时候生成的一些数据。如：对象的定义和变量的定义。</p>
+<ul>
+<li><p>Java 堆是被所有线程共享的一块内存区域，在虚拟机启动的时候被创建；</p>
+</li>
+<li><p>Java 堆是垃圾收集的主要区域，因此很多时候被称为”GC”堆。</p>
+<p>现在垃圾收集一般是按照分代收集的的所以java堆还可以细分为：新生代、老年代；再细分就是Eden空间 、From Survivor 空间、ToSurvivor 空间。</p>
+</li>
+</ul>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>​    用来存放已被加载的类的信息、常量、静态变量、即时编译器编译后的代码（在Java中static的作用就是说明该变量，方法，代码块是属于类的还是属于实例的）。</p>
+<h3 id="定义和声明"><a href="#定义和声明" class="headerlink" title="定义和声明"></a>定义和声明</h3><p>​    这里需要对这两个动词进行一些说明。因为在平时过程中，我是对这两个概念比较模糊。一说就是定义声明了一个变量。但是事实上确实不一样的。声明就只是定义这个变量的名字，告诉编译器会有这么一个变量。而定义就不同了，定义就是在声明之后对变量进行初始化、设置一个初始值的过程。如：int i；int i=1；就是这个区别。</p>
+<p>​    而在java变量的声明过程中，是不允许没有初始化变量的。</p>
+<h3 id="Data-segment"><a href="#Data-segment" class="headerlink" title="Data segment"></a>Data segment</h3><p>​    这个包括静态域和常量池。</p>
+<h4 id="静态域"><a href="#静态域" class="headerlink" title="静态域"></a>静态域</h4><p>​    存放在对象中的静态变量。</p>
+<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><p>​    这个主要是在编译完成后，存放在.class文件中（code segment）。包括一些基本的数据类型和相应的类的接口和声明。换言之就是在编译后，程序中经常使用的不会改变的。</p>
+<p>​    JVM为每个已加载的类型维护一个常量池，常量池就是这个类型用到的常量的一个有序集合。包括直接常量(基本类型，String)和对其他类型、方法、字段的符号引用(1)。池中的数据和数组一样通过索引访问。由于常量池包含了一个类型所有的对其他类型、方法、字段的符号引用，所以常量池在Java的动态链接中起了核心作用。<strong>常量池存在于方法区（Method Area）</strong>。</p>
+<ul>
+<li>存放字符串常量和基本类型变量，比如String str=”www”; 实际上”www”是在常量池里边。</li>
+<li>常量池是在方法区中而不是堆内存中。</li>
+<li>Java的8种基本类型(Byte, Short, Integer, Long, Character, Boolean, Float, Double), 除Float和Double以外, 其它六种都实现了常量池, 但是它们只在大于等于-128并且小于等于127时才使用常量池。而如果大于127 或小于-128 则不会使用常量池所以会直接在堆内存中创建对象。</li>
+</ul>
+<h3 id="I-代码段"><a href="#I-代码段" class="headerlink" title="I 代码段"></a>I 代码段</h3><p>​    用来存放从硬盘上读取的源程序代码。</p>
+<h3 id="内存表示图如上："><a href="#内存表示图如上：" class="headerlink" title="内存表示图如上："></a>内存表示图如上：</h3><p><img src="/images/memory.png" alt="memory表示图"></p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Code segment：</div><div class="line">Arraylist list[] = <span class="keyword">new</span> Arraylist[<span class="number">3</span>]；</div><div class="line"></div><div class="line">arraylist[<span class="number">0</span>] = <span class="number">2</span>;</div><div class="line">arraylist[<span class="number">1</span>] = <span class="number">3</span>;</div><div class="line">arraylist[<span class="number">2</span>] = <span class="number">4</span>;</div></pre></td></tr></table></figure>
+<p>因为list[]是一个变量，这是一个声明我们放到栈中。</p>
+<p>而后面每个数组实例化出来的变量，所以放到堆中。</p>
+<p>而实实在在存在的变量的值都是常量，所以放在常量池中，也就是上图中的data   segment。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/27/Java-中的内存分析/" data-id="cixn8mohg000b2ds60r4r9ymv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/12/Android-5-0新控件简单使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android-5-0新控件简单使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding-note/">coding,note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Other/" style="font-size: 10px;">Other</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/06/Hexo安装过程简单总结/">Hexo安装过程简单总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/自定义View的简单总结/">自定义View的简单总结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/04/Andoird优化VS内存优化/">Android优化VS内存优化</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/04/如何在-Android-中避免创建不必要的对象/">如何在 Android 中避免创建不必要的对象</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/">如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Hywel Xu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/categories" class="mobile-nav-link">目录</a>
+  
+    <a href="/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
