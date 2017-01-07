@@ -15,7 +15,7 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
 <meta property="og:description" content="如何在Android中避免创建不必要的对象在编程开发中，内存的占用是我们经常要面对的现实，通常的内存调优的方向就是尽量减少内存的占用。这其中避免创建不必要的对象是一项重要的方面。
 Android设备不像PC那样有着足够大的内存，而且单个App占用的内存实际上是比较小的。所以避免创建不必要的对象对于Android开发尤为重要。
 本文会介绍一些常见的避免创建对象的场景和方法，其中有些属于微优化，有的属">
-<meta property="og:updated_time" content="2016-08-04T03:13:01.000Z">
+<meta property="og:updated_time" content="2017-01-07T14:22:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在 Android 中避免创建不必要的对象">
 <meta name="twitter:description" content="如何在Android中避免创建不必要的对象在编程开发中，内存的占用是我们经常要面对的现实，通常的内存调优的方向就是尽量减少内存的占用。这其中避免创建不必要的对象是一项重要的方面。
@@ -79,9 +79,7 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
   </div>
   <script>
     
-    var number_of_banners = 6;
-    var randnum = Math.floor(Math.random() * number_of_banners + 1);
-    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + randnum + ".jpg)";
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner.jpg)";
     
 </script>
 </header>
@@ -120,6 +118,7 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleInstance</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingleInstance</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleInstance <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> SingleInstanceHolder.sInstance;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleInstanceHolder</span> </span>&#123;</div><div class="line"></div><div class="line">      <span class="keyword">private</span> <span class="keyword">static</span> SingleInstance sInstance = <span class="keyword">new</span> SingleInstance();</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在Java中，类的静态初始化会在类被加载时触发，我们利用这个原理，可以实现利用这一特性，结合内部类，可以实现上面的代码，进行懒汉式创建实例。</p>
 <p>关于单例，可以详细参考文章单例这种设计模式</p>
+<a id="more"></a>
 <h3 id="避免进行隐式装箱"><a href="#避免进行隐式装箱" class="headerlink" title="避免进行隐式装箱"></a>避免进行隐式装箱</h3><p>自动装箱是Java 5 引入的一个特性，即自动将原始类型的数据转换成对应的引用类型，比如将int转为Integer等。</p>
 <p>这种特性，极大的减少了编码时的琐碎工作，但是稍有不注意就可能创建了不必要的对象了。比如下面的代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Integer sum = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1000</span>; i&lt;<span class="number">5000</span>; i++)&#123;</div><div class="line"></div><div class="line">   sum+=i;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -201,7 +200,7 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/04/如何在-Android-中避免创建不必要的对象/" data-id="cixn8mohi000f2ds6lox64xnb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/04/如何在-Android-中避免创建不必要的对象/" data-id="cixndbiyu000e3fs6w4rmgzhj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>

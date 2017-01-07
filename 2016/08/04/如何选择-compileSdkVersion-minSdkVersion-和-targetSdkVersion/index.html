@@ -16,7 +16,7 @@
 当你发布一个应用之后，(取决于具体的发布时间)可能没过几个月 Android 系统就发布了一个新版本。这对你的应用意味着什么，所有东西都不能用了？
 别担心，向前兼容是 Android 非常关注的事情。用户在升级到新版 Android 的时候，用以前版本的 SDK 构建的现有应用应该不会">
 <meta property="og:image" content="http://static.open-open.com/lib/uploadImg/20160120/20160120092409_585.png">
-<meta property="og:updated_time" content="2016-08-04T01:59:04.000Z">
+<meta property="og:updated_time" content="2017-01-07T14:35:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion">
 <meta name="twitter:description" content="如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion
@@ -81,9 +81,7 @@
   </div>
   <script>
     
-    var number_of_banners = 6;
-    var randnum = Math.floor(Math.random() * number_of_banners + 1);
-    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + randnum + ".jpg)";
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner.jpg)";
     
 </script>
 </header>
@@ -117,6 +115,7 @@
         <h2 id="如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion"><a href="#如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion" class="headerlink" title="如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion"></a>如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</h2><p><img src="http://static.open-open.com/lib/uploadImg/20160120/20160120092409_585.png" alt="Android Version"></p>
 <p>当你发布一个应用之后，(取决于具体的发布时间)可能没过几个月 Android 系统就发布了一个新版本。这对你的应用意味着什么，所有东西都不能用了？</p>
 <p>别担心，向前兼容是 Android 非常关注的事情。用户在升级到新版 Android 的时候，用以前版本的 SDK 构建的现有应用应该不会出问题。这就是 compileSdkVersion, minSdkVersion 和 targetSdkVersion 的作用：他们分别控制可以使用哪些 API ，要求的 API 级别是什么，以及应用的兼容模式。</p>
+<a id="more"></a>
 <h3 id="compileSdkVersion"><a href="#compileSdkVersion" class="headerlink" title="compileSdkVersion"></a>compileSdkVersion</h3><p>compileSdkVersion 告诉 Gradle 用哪个 Android SDK 版本编译你的应用。使用任何新添加的 API 就需要使用对应 Level 的 Android SDK。</p>
 <p>需要强调的是修改 compileSdkVersion 不会改变运行时的行为。当你修改了 compileSdkVersion 的时候，可能会出现新的编译警告、编译错误，但新的 compileSdkVersion 不会被包含到 APK 中：它纯粹只是在编译的时候使用。（你真的应该修复这些警告，他们的出现一定是有原因的）</p>
 <p>因此我们强烈推荐总是使用最新的 SDK 进行编译。在现有代码上使用新的编译检查可以获得很多好处，避免新弃用的 API ，并且为使用新的 API 做好准备。</p>
@@ -152,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/" data-id="cixn8mohk000h2ds6f8h4aosy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/" data-id="cixndbiyw000g3fs6w12ito0e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>

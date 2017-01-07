@@ -19,7 +19,7 @@
 
 若要控制其显示的方式，通过设置LayoutManager
 若要控制Item间的间隔，通过设置ItemDecora">
-<meta property="og:updated_time" content="2016-07-12T09:32:29.000Z">
+<meta property="og:updated_time" content="2017-01-07T14:34:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-5-0新控件简单使用">
 <meta name="twitter:description" content="Android中RecyclerView的使用​    RecyclerView是谷歌官方在android_support_v7中添加的一个新控件类型。可以更方面的用来表征列表类型的数据展示类型，用来替代之前ListView,GridView等。
@@ -85,9 +85,7 @@
   </div>
   <script>
     
-    var number_of_banners = 6;
-    var randnum = Math.floor(Math.random() * number_of_banners + 1);
-    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + randnum + ".jpg)";
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner.jpg)";
     
 </script>
 </header>
@@ -128,6 +126,7 @@
 </ul>
 <p>由此看来，<code>RecyclerView</code>是一个高度可定制，解耦合的控件，它的简单使用范例如下：  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">LinearLayoutManager mLayoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</div><div class="line">mRecyclerView = findView(R.id.recyclerview);</div><div class="line"><span class="comment">//设置布局管理器</span></div><div class="line">mRecyclerView.setLayoutManager(mLayoutManager);</div><div class="line"><span class="comment">//设置适配器</span></div><div class="line">mRecyclerView.setAdapter(mAdapter);</div><div class="line"><span class="comment">//设置Item增加、移除动画</span></div><div class="line">mRecyclerView.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</div><div class="line"><span class="comment">//添加分割线</span></div><div class="line">mRecyclerView.addItemDecoration(<span class="keyword">new</span> DividerItemDecoration(</div><div class="line">                getActivity(), DividerItemDecoration.HORIZONTAL_LIST));</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p><code>RecyclerView</code>里的<code>LayoutManager</code>有3中类型，其中<code>LinearLayoutManager</code>是默认的。</p>
 <ul>
 <li><code>LinearLayoutManager</code>线性管理器，支持横向、纵向。</li>
@@ -150,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/12/Android-5-0新控件简单使用/" data-id="cixn8moh100012ds616gp9pxd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/12/Android-5-0新控件简单使用/" data-id="cixndbiyo00073fs6133jnasz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>

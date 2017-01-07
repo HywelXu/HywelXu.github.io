@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://yoursite.com/Users/hywel/Desktop/005Xtdi2gw1f1qzqwvkkbj308c0dwgm9.jpg">
 <meta property="og:image" content="http://yoursite.com/Users/hywel/Desktop/005Xtdi2jw1f1r2bdlqhbj308c0dwwew.jpg">
 <meta property="og:image" content="http://yoursite.com/Users/hywel/Desktop/CustomView.png">
-<meta property="og:updated_time" content="2016-09-02T09:54:51.000Z">
+<meta property="og:updated_time" content="2017-01-07T14:40:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义View的简单总结">
 <meta name="twitter:description" content="[TOC]
@@ -99,9 +99,7 @@
   </div>
   <script>
     
-    var number_of_banners = 6;
-    var randnum = Math.floor(Math.random() * number_of_banners + 1);
-    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + randnum + ".jpg)";
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner.jpg)";
     
 </script>
 </header>
@@ -144,6 +142,7 @@
 </ol>
 <p>View 的三大流程均是通过 ViewRoot来完成的。在 ActivityThread 中，当 Activity 对象被创建完毕后，会将 DecorView 添加到 Window 中，同时会创建 ViewRootImpl 对象，并将ViewRootImpl对象和 DecorView建立关联，这个过程可以参看如下源码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root = <span class="keyword">new</span> ViewRootImpl(view.getContext(),display);</div><div class="line">root.setView(view,wparams,panelParentView);</div></pre></td></tr></table></figure>
+<p>​    <a id="more"></a></p>
 <p>​    View 的绘制流程是从 ViewRoot 的 performTraversals 方法开始的，它经过 measure,layout和 draw 三个过程才能最终将一个 View 绘制出来的，其中 measure 用来测量 View的宽和高，layout 用来确定 View 在父容器中的放置位置，而 draw 则负责将 View 绘制在屏幕上。针对 performTraversals 的大致流程，用流程图表示如下：</p>
 <p>  <img src="/Users/hywel/Desktop/view_mechanism_flow.png" alt="view_mechanism_flow"></p>
 <p><strong>View 绘制流程的函数调用链</strong></p>
@@ -455,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/18/自定义View的简单总结/" data-id="cixn8mohm000l2ds6782pdbap" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/18/自定义View的简单总结/" data-id="cixndbiyy000k3fs6n9xjzq00" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>

@@ -72,9 +72,7 @@
   </div>
   <script>
     
-    var number_of_banners = 6;
-    var randnum = Math.floor(Math.random() * number_of_banners + 1);
-    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + randnum + ".jpg)";
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner.jpg)";
     
 </script>
 </header>
@@ -118,71 +116,16 @@
 </li>
 <li><p>扩展性</p>
 <p>Hexo支持EJS、Swig和Stylus，通过插件支持Haml、Jade和Less</p>
-<p>​</p>
-</li>
-</ul>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><ul>
-<li><p>必须安装Node.js；</p>
-<p>官网  <strong><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></strong>下载安装包，点击安装即可</p>
-</li>
-<li><p>必须安装git；</p>
-<p>官网 <strong><a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a></strong></p>
-</li>
-</ul>
-<ol>
-<li>Windows：直接下载安装</li>
-<li>Mac：进入git网站下载和安装 ，如果已经安装过Xcode，则不必安装了</li>
-<li>Ubuntu：打开终端复制粘贴命令  <em>sudo apt-get install git-core</em></li>
-</ol>
-<h3 id="安装和配置Hexo"><a href="#安装和配置Hexo" class="headerlink" title="安装和配置Hexo"></a>安装和配置Hexo</h3><p>在上述步骤成功完成之后就可以使用npm安装Hexo了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div><div class="line">$ npm install hexo --save</div><div class="line"></div><div class="line">//可选择装一些插件</div><div class="line">$ npm install hexo-generator-index --save</div><div class="line">$ npm install hexo-generator-archive --save</div><div class="line">$ npm install hexo-generator-category --save</div><div class="line">$ npm install hexo-generator-tag --save</div><div class="line">$ npm install hexo-server --save</div><div class="line">$ npm install hexo-deployer-git --save//必要</div><div class="line">$ npm install hexo-deployer-heroku --save</div><div class="line">$ npm install hexo-deployer-rsync --save</div><div class="line">$ npm install hexo-deployer-openshift --save</div><div class="line">$ npm install hexo-renderer-marked@0.2 --save</div><div class="line">$ npm install hexo-renderer-stylus@0.2 --save</div><div class="line">$ npm install hexo-generator-feed@1 --save</div><div class="line">$ npm install hexo-generator-sitemap@1 --save</div><div class="line">$ npm install hexo --no-optional//必要</div></pre></td></tr></table></figure>
-<p>而后在本地目录中创建一个文件夹以存放Hexo，cd到此目录下，执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
-<p>然后启动本地Hexo服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>打开浏览器，输入<a href="http://0.0.0.0:4000/出现Hexo界面则表示安装成功。" target="_blank" rel="external">http://0.0.0.0:4000/出现Hexo界面则表示安装成功。</a></p>
-<h3 id="配置Github仓库"><a href="#配置Github仓库" class="headerlink" title="配置Github仓库"></a>配置Github仓库</h3><p>登录Github网站之后，“Create a repository”给仓库取名为 <code>xxx.github.io</code>格式。然后初始化。</p>
-<p>配置SSH，此步骤省略。可参见文末处的网址！</p>
-<p>SSH配置好之后，开始配置本地的Hexo。打开Hexo目录下的<code>_config.yml</code>,在其最下方处配置自己的Github用户名等信息。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: http://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/codertian/codertian.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>然后保存，再cd到Hexo的根目录，依次执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean //清理</div><div class="line">$ hexo g     //生成</div><div class="line">$ hexo d     //部署</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/CoderTian/CoderTian.github.io/master/2015/11/26/github-hexo-blog/fabusuccess.png" alt="Hexo提交成功图"></p>
-<p>出现上面的情况，就说明成功了。</p>
-<p>另外，需要注意yml的文件格式很严格：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">比如说，你deploy后面的三个参数，应该这样：</div><div class="line"></div><div class="line">deploy:</div><div class="line">  type: git   </div><div class="line">  repository: https://github.com/tongxindao/tongxindao.github.io.git</div><div class="line">  branch: master</div><div class="line">  </div><div class="line">变量名之前两个空格，参数值前一个空格，用:分割</div></pre></td></tr></table></figure>
-<p>否则，可能会出现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Available deployer plugins:</div><div class="line"></div><div class="line">  git</div><div class="line">For more help, you can check the online docs: http://hexo.io/</div></pre></td></tr></table></figure>
-<p>这个现象。如果安装过程中遇到其他问题，请自行搜索。</p>
-<h3 id="配置自己博客的网址"><a href="#配置自己博客的网址" class="headerlink" title="配置自己博客的网址"></a>配置自己博客的网址</h3><p>此步骤省略，详情见文末链接。（此步骤不甚必要）</p>
-<h3 id="开启Hexo的分类、标记等页面"><a href="#开启Hexo的分类、标记等页面" class="headerlink" title="开启Hexo的分类、标记等页面"></a>开启Hexo的分类、标记等页面</h3><p>运行下面几句命令即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ hexo new page tags</div><div class="line"></div><div class="line">$ hexo new page categories</div><div class="line"></div><div class="line">$ hexo new page archives</div></pre></td></tr></table></figure>
-<h3 id="创建和发布文章"><a href="#创建和发布文章" class="headerlink" title="创建和发布文章"></a>创建和发布文章</h3><p>想要发布新的文章，首先cd到Hexo文件夹下，然后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;文章标题&quot;</div></pre></td></tr></table></figure>
-<p>之后就可以在Hexo-&gt;Source-&gt;_post目录下看到刚刚新建的文章，使用MarkDown编辑器编辑文件即可写文章。</p>
-<p>文章写好之后可以直接用如下命令发布文章</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure>
-<p>若是发布文章时出现此错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ERROR Deployer not found: git</div></pre></td></tr></table></figure>
-<p>请执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>如果想要更换主题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd到Hexo目录，再执行：</div><div class="line">$ git clone https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak.git themes/tranquilpeak</div></pre></td></tr></table></figure>
-<p>接着在Hexo根目录下的yml文件里将“theme”后改为“tranquilpeak”。</p>
-<p>好了，Hexo的搭建过程大体是如此。</p>
-<p>如果想更换主题或者了解各个文件夹的作用等，网络上有很多相关介绍，请自行搜索。详情可以点击如下几个链接：</p>
-<ol>
-<li><a href="https://hexo.io" target="_blank" rel="external">Hexo官网</a></li>
-<li><a href="http://www.jianshu.com/p/863f3f2d1733" target="_blank" rel="external">使用github+Hexo人人都能拥有一个美美的博客</a></li>
-<li><a href="http://www.jianshu.com/p/73779eacb494" target="_blank" rel="external">Hexo 靜態博客使用指南</a></li>
-<li><a href="http://blog.csdn.net/qq_26891045/article/details/51693571" target="_blank" rel="external">hexo博客添加图片，音乐，视频</a></li>
-<li><a href="http://qiutc.me/post/%E4%BD%BF%E7%94%A8hexo-github%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2.html" target="_blank" rel="external">使用hexo+github搭建静态博客</a>（<strong>重点推荐</strong>）</li>
-</ol>
-
+<p>​
+        
+          <p class="article-more-link">
+            <a href="/2017/01/06/Hexo安装过程简单总结/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/06/Hexo安装过程简单总结/" data-id="cixn8mohf00092ds6n5hf7h89" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/06/Hexo安装过程简单总结/" data-id="cixndbiyr00093fs6zqdal76n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
@@ -232,318 +175,16 @@
 </ol>
 <p>View 的三大流程均是通过 ViewRoot来完成的。在 ActivityThread 中，当 Activity 对象被创建完毕后，会将 DecorView 添加到 Window 中，同时会创建 ViewRootImpl 对象，并将ViewRootImpl对象和 DecorView建立关联，这个过程可以参看如下源码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root = <span class="keyword">new</span> ViewRootImpl(view.getContext(),display);</div><div class="line">root.setView(view,wparams,panelParentView);</div></pre></td></tr></table></figure>
-<p>​    View 的绘制流程是从 ViewRoot 的 performTraversals 方法开始的，它经过 measure,layout和 draw 三个过程才能最终将一个 View 绘制出来的，其中 measure 用来测量 View的宽和高，layout 用来确定 View 在父容器中的放置位置，而 draw 则负责将 View 绘制在屏幕上。针对 performTraversals 的大致流程，用流程图表示如下：</p>
-<p>  <img src="/Users/hywel/Desktop/view_mechanism_flow.png" alt="view_mechanism_flow"></p>
-<p><strong>View 绘制流程的函数调用链</strong></p>
-<p>  <img src="/Users/hywel/Desktop/View travelsals.png" alt="View travelsals"></p>
-<p>performTraversals 会依次调用 performMeasure,performLayout和 performDraw 三个方法，这三个方法分别完成顶级 View的 measure，layout 和 draw这三大流程，其中 performMeasure 中会调用 measure 方法，在 measure 方法中又会调用 onMeasure 方法，在 onMeasure 方法中则会对所有的子元素进行 measure 过程，这个时候 measure 流程就从父容器传递到子元素中了，这样就完成了一次measure 过程。接着子元素会重复父容器的 measure 过程，如此反复就完成了整个 View 树的遍历。同理，performLayout 和 performDraw 的传递流程和 performMeasure 是类似的，唯一不同的是，performDraw 的传递过程是在 draw 方法中通过 dispatchDraw 来实现的，不过这并没有本质区别。</p>
-<p>​    measure 过程决定了 View 的宽/高，Measure 完成以后，通过 getMeasuredWidth 和 getMeasuredHeight 方法来获取到 View 测量后的宽/高。Layout 过程决定了View 的四个顶点的坐标和实际View 的宽/高，完成以后，可以通过 getTop，getBottom，getLeft和 getRight 来拿到 View 的四个顶点的位置，用可以通过 getWidth 和 getHeight 方法来拿到 View 的最终宽/高。Draw 过程则决定了 View 的显示，只有draw 方法完成之后 View 的内容才可以呈现在屏幕上。</p>
-<p><strong>DecorView的结构</strong></p>
-<p> <img src="/Users/hywel/Desktop/DecorView.png" alt="DecorView"></p>
-<blockquote>
-<p>DecorView是顶级View，内部有TitleBar和mContentParent两个子元素，mContentParent的id是content，而我们设置的main.xml布局则是contentParent里面的一个子元素。</p>
-</blockquote>
-<p>​    DecorView作为 Window 界面的最顶层 View，一般会包含一个竖直方向的 LinearLayout，代表整个Window界面，包含通知栏，标题栏，内容显示栏三块区域。LinearLayout里包含两个 FrameLayout，一个是标题栏显示界面。另一个是内容栏显示界面，就是通过 setContentView 方法载入的布局界面。通过源码可以知道，DecorView 其实是一个 FrameLayout，View 层的事件都先经过 DecorView,然后才传递给我们的 View。</p>
-<h2 id="理解-MeasureSpec"><a href="#理解-MeasureSpec" class="headerlink" title="理解 MeasureSpec"></a>理解 MeasureSpec</h2><p>为了更好的理解 View 的测量过程，我们还需要理解 MeasureSpec。</p>
-<p>MeasureSpec 代表一个32位的 int 值，高2位代表 SpecMode，低30位代表 SpecSize。SpecMode是指测量模式，而SpecSize是指在某种测量模式下的规格大小。可以看下MeasureSpec的部分代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MODE_SHIFT = <span class="number">30</span>;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MODE_MASK  = <span class="number">0x3</span> &lt;&lt; MODE_SHIFT;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> UNSPECIFIED = <span class="number">0</span> &lt;&lt; MODE_SHIFT;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> EXACTLY     = <span class="number">1</span> &lt;&lt; MODE_SHIFT;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> AT_MOST     = <span class="number">2</span> &lt;&lt; MODE_SHIFT;</div><div class="line"><span class="comment">/**</span></div><div class="line">* Creates a measure specification based on the supplied size and mode.</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">makeMeasureSpec</span><span class="params">(<span class="keyword">int</span> size, <span class="keyword">int</span> mode)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (sUseBrokenMakeMeasureSpec) &#123;</div><div class="line">                <span class="keyword">return</span> size + mode;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> (size &amp; ~MODE_MASK) | (mode &amp; MODE_MASK);</div><div class="line">            &#125;</div><div class="line"> 	&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Extracts the mode from the supplied measure specification.</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMode</span><span class="params">(<span class="keyword">int</span> measureSpec)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> (measureSpec &amp; MODE_MASK);</div><div class="line">	&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * Extracts the size from the supplied measure specification.</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">(<span class="keyword">int</span> measureSpec)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> (measureSpec &amp; ~MODE_MASK);</div><div class="line">     &#125;</div></pre></td></tr></table></figure>
-<p>​    MeasureSpec通过将 SpecMode 和 SpecSize 打包成一个 int 值来避免过多的对象内存分配。SpecMode 和 SpecSize 也是一个 int 值，一组SpecMode 和 SpecSize 可以打包为一个 MeasureSpec，而一个MeasureSpec可以通过解包的形式得出其原始的SpecMode 和 SpecSize。这里的 MeasureSpec 只是 MeasureSpec 所代表的 int 值，而并非 MeasureSpec 本身。</p>
-<p>​    SpecMode 有三类，每一类都表示特殊的含义。如下：</p>
-<ul>
-<li><p>UNSPECIFIED</p>
-<p>​父容器不对 View 有任何限制，要多大给多大，这种情况一般用于系统内部，表示一种测量的状态。</p>
-</li>
-<li><p>EXACTLY</p>
-<p>​父容器已经检测出 View 所需要的精确大小，这个时候 View 的最终大小就是 SpecSize 所指定的值。它对应于 LayouParams 中的 match_parent 和具体的数值这两种模式。</p>
-</li>
-<li><p>AT_MOST</p>
-<p>​父容器指定了一个可用大小即 SpecSize，View 的大小不能大于这个值，具体值则要看不同 View 的具体表现，它对应于 LayoutParams 中的 wrap_content。</p>
-</li>
-</ul>
-<h2 id="View-的区别：View，ViewGroup"><a href="#View-的区别：View，ViewGroup" class="headerlink" title="View 的区别：View，ViewGroup"></a>View 的区别：View，ViewGroup</h2><p>Android View和ViewGroup从组成架构上看，似乎ViewGroup在View之上，View需要继承ViewGroup，但实际上不是这样的。<strong>View是基类，ViewGroup是它的子类。</strong>这就证明了一点，View代表了用户界面组件的一块可绘制的空间块。每一个View在屏幕上占据一个长方形区域。在这个区域内，这个VIEW对象负责图形绘制和事件处理。View是小控件widgets和ViewGroup的父类。ViewGroup又是Layout的基类。在 Android 中，视图控件大致可以分为两类，即 ViewGroup 和 View，<strong>通过ViewGroup和View便形成了控件树，各个ViewGoup对象和View对象就是控件树中的节点。</strong>在控件树中，以树的深度来遍历查找对应的控件元素，同时，上层控件负责子控件的测量与绘制，并传递交互事件。</p>
-<p>一般来说，开发Android应用程序的UI界面都不会直接实用View和ViewGroup，而是使用这两大基类的派生类。</p>
-<ul>
-<li>View 派生出的直接子类有：AnalogClock,ImageView,KeyboardView,ProgressBar,SurfaceView,TextView,ViewGroup,ViewStub等</li>
-</ul>
-<ul>
-<li><p>View 派生出的间接子类有：</p>
-<p>AbsListView,AbsSeekBar,AbsSpinner, AbsoluteLayout, AdapterView<strong><t extends="" adapter=""></t></strong>,AdapterViewAnimator, AdapterViewFlipper, AppWidgetHostView, AutoCompleteTextView,Button,CalendarView, CheckBox, CheckedTextView, Chronometer, CompoundButton等</p>
-</li>
-</ul>
-<ul>
-<li>ViewGroup派生出的直接子类有：AbsoluteLayout,AdapterView<strong><t extends="" adapter=""></t></strong>,FragmentBreadCrumbs,FrameLayout,LinearLayout,RelativeLayout,SlidingDrawer等</li>
-</ul>
-<ul>
-<li><p>ViewGroup派生出的间接子类有：</p>
-<p>AbsListView,AbsSpinner, AdapterViewAnimator, AdapterViewFlipper, AppWidgetHostView, CalendarView, DatePicker, DialerFilter, ExpandableListView, Gallery, GestureOverlayView,GridView,HorizontalScrollView, ImageSwitcher,ListView等</p>
-</li>
-</ul>
-<p>上述的所有基类、派生类都是Android framework层集成的标准系统类，开发者在应用开发中可直接引用SDK中这些系统类及其API。但事实上，在UI开发的很多场景下，直接使用这些系统类并不能满足应用开发的需要。比如说，我们想用ImageView在默认情况下加载一幅图片，但是希望在点击该View时View变换出各种图像处理效果，这个时候直接使用ImageView是不行的，此时我们可以重载ImageView，在新派生出的子控件中重载OnDraw等方法来实现我们的定制效果。这种派生出系统类的子类方法我们通常称之为自定义控件。</p>
-<h2 id="View-的几个构造方法"><a href="#View-的几个构造方法" class="headerlink" title="View 的几个构造方法"></a>View 的几个构造方法</h2><p>View的构造函数有四种重载分别如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">VolumeView</span><span class="params">(Context context)</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">VolumeView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">VolumeView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">VolumeView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr, <span class="keyword">int</span> defStyleRes)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>可以看出，关于 View 构造函数的参数有多有少，我们着重研究。</p>
-<p><strong>有四个参数的构造函数在 API12的时候才增加，暂不考虑</strong></p>
-<p>有三个参数的构造函数中第三个参数是默认的Style，这里的默认的Style是指它在当前Application或Activity所用的Theme中的默认Style，且只有在明确调用的时候才会生效，以系统中的ImageButton为例说明：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ImageButton</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="comment">//调用了三个参数的构造函数，明确指定第三个参数</span></div><div class="line">		<span class="keyword">this</span>(context, attrs,        com.android.internal.R.attr.imageButtonStyle);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ImageButton</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="comment">//此处调了四个参数的构造函数，无视即可</span></div><div class="line">        <span class="keyword">this</span>(context, attrs, defStyleAttr, <span class="number">0</span>); </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<hr>
-<p><strong>注意：即使你在View中使用了Style这个属性也不会调用三个参数的构造函数，所调用的依旧是两个参数的构造函数。</strong></p>
-<p><strong>由于三个参数的构造函数第三个参数一般不用，暂不考虑。</strong></p>
-<p>在实际自定义 View 的开发工作中，最经常用到的是两个参数的构造函数。在这个构造函数里做一些初始化工作，例如初始化画笔、引入和绑定属性等。如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">VolumeView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        setAttrs(context, attrs);<span class="comment">//设置属性</span></div><div class="line">        initPaint();<span class="comment">//初始化画笔</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">     * 获取自定义View的属性值</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@param</span> attrs</div><div class="line">     */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setAttrs</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.VolumeView);</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != a) &#123;</div><div class="line">            radius = a.getDimensionPixelSize(R.styleable.VolumeView_radius, defaultRadius);</div><div class="line">            backgroundColor = a.getColor(R.styleable.VolumeView_backgroundColor,</div><div class="line">                    defaultBackgroundColor);</div><div class="line">            volumeColor = a.getColor(R.styleable.VolumeView_volumeColor, defaultVolumeColor);</div><div class="line">            primaryVolumeColor = a.getColor(R.styleable.VolumeView_primaryVolumeColor,</div><div class="line">                    defaultPrimaryVolumeColor);</div><div class="line">            borderWidth = a.getDimensionPixelSize(R.styleable.VolumeView_borderWidth,</div><div class="line">                    defaultBorderWidth);</div><div class="line">            maxVolume = a.getInt(R.styleable.VolumeView_maxVolume, <span class="number">15</span>);</div><div class="line">            a.recycle();</div><div class="line">        &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">     * 初始化画笔</div><div class="line">     */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPaint</span><span class="params">()</span> </span>&#123;</div><div class="line">        angle = <span class="number">360f</span> / maxVolume;</div><div class="line">        unitAngle = angle / maxAnimationValue;</div><div class="line">        paint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</div><div class="line">        paint.setAntiAlias(<span class="keyword">true</span>);<span class="comment">//抗锯齿</span></div><div class="line">        paint.setDither(<span class="keyword">true</span>);<span class="comment">//防抖</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="View-的工作流程"><a href="#View-的工作流程" class="headerlink" title="View 的工作流程"></a>View 的工作流程</h2><p>View 工作流程的调用链：</p>
-<p> <img src="/Users/hywel/Desktop/view_draw_flow.jpg" alt="view_draw_flow"></p>
-<p>​    View 的工作流程主要指的是 measure，layout，draw 这三大流程，即测量，布局，绘制。其中measure 确定 View 的测量宽/高，layout 确定 View 的最终宽/高和四个顶点的位置，而 draw 则将 View 绘制到屏幕上。</p>
-<h3 id="View-的-measure-过程"><a href="#View-的-measure-过程" class="headerlink" title="View 的 measure 过程"></a>View 的 measure 过程</h3><p>View 的 measure 过程由其 measure 方法来完成，measure 方法是一个 final 类型的方法，故子类不能重写该方法，在 View 的 measure 方法中会去调用 View 的 onMeasure 方法，因此只需要看 onMeasure 的实现即可，View 的 onMeasure 方法如下所示。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">      setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),</div><div class="line">                getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>setMeasuredDimension方法会设置 View 的宽/高的测量值，因此我们只需要看 getDefaultSize 这个方法即可：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getDefaultSize</span><span class="params">(<span class="keyword">int</span> size, <span class="keyword">int</span> measureSpec)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = size;</div><div class="line">        <span class="keyword">int</span> specMode = MeasureSpec.getMode(measureSpec);</div><div class="line">        <span class="keyword">int</span> specSize = MeasureSpec.getSize(measureSpec);</div><div class="line"></div><div class="line">        <span class="keyword">switch</span> (specMode) &#123;</div><div class="line">        <span class="keyword">case</span> MeasureSpec.UNSPECIFIED:</div><div class="line">            result = size;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> MeasureSpec.AT_MOST:</div><div class="line">        <span class="keyword">case</span> MeasureSpec.EXACTLY:</div><div class="line">            result = specSize;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>此方法逻辑简单，先看 <code>AT_MOST</code> 和<code>EXACTLY</code> 这两种情况。简单来理解，此方法返回的大小就是 MeasureSpec 中的 Specsize，而这个 Specsize 就是 View测量后的大小，这里多次提到测量后的大小，是因为View 最终的大小是在 layout 阶段确定的，所以这里必须要加以区分，但是几乎所有情况下 View 的测量大小和最终大小是相等的。</p>
-<p><code>UNSPECIFIED</code>这种情况，一般用于系统内部的测量过程，这种情况下，View 的大小为 getDefaultSize 的第一个参数 size，即宽/高分别为getSuggestedMinimumWidth 和 getSuggestedMinimumHeight 这两个方法的返回值。</p>
-<h3 id="ViewGroup-的-measure-过程"><a href="#ViewGroup-的-measure-过程" class="headerlink" title="ViewGroup 的 measure 过程"></a>ViewGroup 的 measure 过程</h3><p>对于ViewGroup来说，除了完成自己的 measure 过程外还会遍历调用所有子元素的 measure 方法，各个子元素再递归去执行这个过程。和 View 不同的是，ViewGroup是一个抽象类，因此它没有重写 View 的 onMeasure 方法，但是它提供了一个叫 measureChild 的方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">measureChildren</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> size = mChildrenCount;</div><div class="line">        <span class="keyword">final</span> View[] children = mChildren;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i) &#123;</div><div class="line">            <span class="keyword">final</span> View child = children[i];</div><div class="line">            <span class="keyword">if</span> ((child.mViewFlags &amp; VISIBILITY_MASK) != GONE) &#123;</div><div class="line">                measureChild(child, widthMeasureSpec, heightMeasureSpec);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>可以看出，ViewGroup 在 measure 时，会对每一个子元素进行 measure，measureChild 这个方法的实现也很好理解，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">measureChild</span><span class="params">(View child, <span class="keyword">int</span> parentWidthMeasureSpec,</span></span></div><div class="line"><span class="keyword">int</span> parentHeightMeasureSpec) &#123;</div><div class="line">        <span class="keyword">final</span> LayoutParams lp = child.getLayoutParams();</div><div class="line"></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> childWidthMeasureSpec = getChildMeasureSpec(parentWidthMeasureSpec,</div><div class="line">                mPaddingLeft + mPaddingRight, lp.width);</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> childHeightMeasureSpec = getChildMeasureSpec(parentHeightMeasureSpec,</div><div class="line">                mPaddingTop + mPaddingBottom, lp.height);</div><div class="line"></div><div class="line">        child.measure(childWidthMeasureSpec, childHeightMeasureSpec);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>也很显然，measureChild 的意思就是取出子元素的 LayoutParams，然后通过getChildMeasureSpec来创建子元素的 MeasureSpec，接着 MeasureSpec 直接传递给 View 的 measure 方法来进行测量。ViewGroup 没有定义其测量的具体过程，因为 ViewGroup 是一个抽象类， 其测量过程的 onMeasure 方法需要各个子类去具体实现。</p>
-<h3 id="layout-过程"><a href="#layout-过程" class="headerlink" title="layout 过程"></a>layout 过程</h3><p>Layout 的作用是 ViewGroup 用来确定子元素的位置，当 ViewGroup 的位置被确定后，它在 onLayout 中会遍历所有的子元素并确定其 layout 方法，在 layout 方法中 onLayout方法又会被调用。Layout 过程和 measure 过程相比就简单多了，layout 方法确定 View本身的位置，而 onLayout 方法则会确定所有子元素的位置，View 的 layout 方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">layout</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> t, <span class="keyword">int</span> r, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((mPrivateFlags3 &amp; PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT) != <span class="number">0</span>) &#123;</div><div class="line">            onMeasure(mOldWidthMeasureSpec, mOldHeightMeasureSpec);</div><div class="line">            mPrivateFlags3 &amp;= ~PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> oldL = mLeft;</div><div class="line">        <span class="keyword">int</span> oldT = mTop;</div><div class="line">        <span class="keyword">int</span> oldB = mBottom;</div><div class="line">        <span class="keyword">int</span> oldR = mRight;</div><div class="line"></div><div class="line">        <span class="keyword">boolean</span> changed = isLayoutModeOptical(mParent) ?</div><div class="line">                setOpticalFrame(l, t, r, b) : setFrame(l, t, r, b);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (changed || (mPrivateFlags &amp; PFLAG_LAYOUT_REQUIRED) == PFLAG_LAYOUT_REQUIRED) &#123;</div><div class="line">            onLayout(changed, l, t, r, b);</div><div class="line">            mPrivateFlags &amp;= ~PFLAG_LAYOUT_REQUIRED;</div><div class="line"></div><div class="line">            ListenerInfo li = mListenerInfo;</div><div class="line">            <span class="keyword">if</span> (li != <span class="keyword">null</span> &amp;&amp; li.mOnLayoutChangeListeners != <span class="keyword">null</span>) &#123;</div><div class="line">                ArrayList&lt;OnLayoutChangeListener&gt; listenersCopy =</div><div class="line">                        (ArrayList&lt;OnLayoutChangeListener&gt;)li.mOnLayoutChangeListeners.clone();</div><div class="line">                <span class="keyword">int</span> numListeners = listenersCopy.size();</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numListeners; ++i) &#123;</div><div class="line">                    listenersCopy.get(i).onLayoutChange(<span class="keyword">this</span>, l, t, r, b, oldL, oldT, oldR, oldB);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        mPrivateFlags &amp;= ~PFLAG_FORCE_LAYOUT;</div><div class="line">        mPrivateFlags3 |= PFLAG3_IS_LAID_OUT;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>layout的大致流程如下：首先会通过 setFrame 方法来设定 View 的四个顶点的位置，这样 View在父容器的位置也就确定了；接着会调用 onLayout 方法，这个方法的用途是父容器确定子元素的位置，和 onMeasure 方法类似，onLayout 的具体实现同样和具体的布局有关，所以 View 和 ViewGroup 均没有真正实现 onLayout 方法。</p>
-<h3 id="draw-过程"><a href="#draw-过程" class="headerlink" title="draw 过程"></a>draw 过程</h3><p>Draw 过程就比较简单了，它的作用是将 View 绘制到屏幕上面，View 的绘制过程遵循如下几步：</p>
-<ol>
-<li>绘制背景 background.draw(canvas)</li>
-<li>绘制自己 (onDraw)</li>
-<li>绘制 children (dispatchDraw)</li>
-<li>绘制装饰 (onDrawScrollBars)</li>
-</ol>
-<h2 id="View绘制中的几个重要方法"><a href="#View绘制中的几个重要方法" class="headerlink" title="View绘制中的几个重要方法"></a>View绘制中的几个重要方法</h2><ul>
-<li>onSizeChanged()</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>这个方法在界面的尺寸更改的时候会被调用，一般是在屏幕旋转的时候会被调用，有两个新w/h和旧w/h会被传入。</p>
-<ul>
-<li>onMeasure()</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Called to determine the size requirements for this view and all of its children.</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">   setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),</div><div class="line">   getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p><strong>CONTRACT</strong>: When overriding this method, you must call setMeasuredDimension(int, int) to store </p>
-<p><em>当重写此方法时，必须要调用setMeasuredDimension(int, int)来存储</em></p>
-<p>the measured width and height of this view. Failure to do so will trigger an IllegalStateException, </p>
-<p><em>已经测量好的视图的宽和高，否则会由此触发IllegalStateException，</em></p>
-<p>thrown by measure(int, int). Calling the superclass’ onMeasure(int, int) is a valid use.</p>
-<p><em>同样调用父类的 onMeasure(int, int) 也是可以的。</em></p>
-<p>onMeasure()方法顾名思义就是用于测量视图的大小的。measure()方法接收两个参数，widthMeasureSpec和heightMeasureSpec，这两个值分别用于确定视图的宽度和高度的规格和大小。</p>
-<p>MeasureSpec的值由specSize和specMode共同组成的，其中specSize记录的是大小，specMode记录的是规格。specMode一共有三种类型，如下所示：</p>
-<ul>
-<li>EXACTLY</li>
-</ul>
-<p>​表示父视图希望子视图的大小应该是由specSize的值来决定的，系统默认会按照这个规则来设置子视图的大小，开发人员当然也可以按照自己的意愿设置成任意的大小。</p>
-<ul>
-<li>AT_MOST</li>
-</ul>
-<p>​表示子视图最多只能是specSize中指定的大小，开发人员应该尽可能少得去设置这个视图，并且保证不会超过specSize。系统默认会按照这个规则来设置子视图的大小，开发人员当然也可以按照自己的意愿设置成任意的大小。</p>
-<ul>
-<li>UNSPECIFIED</li>
-</ul>
-<p>表示开发人员可以将视图按照自己的意愿设置成任意的大小，没有任何限制。这种情况比较少见，不太会用到。通常情况下，<strong>widthMeasureSpec</strong>和<strong>heightMeasureSpec</strong>两个值都是由父视图经过计算后传递给子视图的，说明父视图会在一定程度上决定子视图的大小。但是最外层的根视图，它的widthMeasureSpec和heightMeasureSpec又是从哪里得到的呢？这就需要去分析ViewRoot中的源码了，观察performTraversals()方法可以发现如下代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">childWidthMeasureSpec = getRootMeasureSpec(desiredWindowWidth, lp.width);</div><div class="line">childHeightMeasureSpec = getRootMeasureSpec(desiredWindowHeight, lp.height);</div></pre></td></tr></table></figure>
-<p>可以看到，这里调用了getRootMeasureSpec()方法去获取widthMeasureSpec和heightMeasureSpec的值，注意方法中传入的参数，其中lp.width和lp.height在创建ViewGroup实例的时候就被赋值了，它们都等于MATCH_PARENT。然后看下getRootMeasureSpec()方法中的代码，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getRootMeasureSpec</span><span class="params">(<span class="keyword">int</span> windowSize, <span class="keyword">int</span> rootDimension)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> measureSpec;</div><div class="line">	<span class="keyword">switch</span> (rootDimension) &#123;</div><div class="line">	<span class="keyword">case</span> ViewGroup.LayoutParams.MATCH_PARENT:</div><div class="line">		measureSpec = MeasureSpec.makeMeasureSpec(windowSize, 			MeasureSpec.EXACTLY);</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> ViewGroup.LayoutParams.WRAP_CONTENT:</div><div class="line">		measureSpec = MeasureSpec.makeMeasureSpec(windowSize, 			MeasureSpec.AT_MOST);</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">default</span>:</div><div class="line">		measureSpec = MeasureSpec.makeMeasureSpec(rootDimension, 			MeasureSpec.EXACTLY);</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> measureSpec;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里使用了MeasureSpec.makeMeasureSpec()方法来组装一个MeasureSpec，当rootDimension参数等于MATCH_PARENT的时候，MeasureSpec的specMode就等于EXACTLY，当rootDimension等于WRAP_CONTENT的时候，MeasureSpec的specMode就等于AT_MOST。并且MATCH_PARENT和WRAP_CONTENT时的specSize都是等于windowSize的，也就意味着根视图总是会充满全屏的。</p>
-<p>接下来我们看下View的measure()方法里面的代码，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">measure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> ((mPrivateFlags &amp; FORCE_LAYOUT) == FORCE_LAYOUT ||</div><div class="line">	widthMeasureSpec != mOldWidthMeasureSpec ||</div><div class="line">	heightMeasureSpec != mOldHeightMeasureSpec) &#123;</div><div class="line">	mPrivateFlags &amp;= ~MEASURED_DIMENSION_SET;</div><div class="line">	<span class="keyword">if</span> (ViewDebug.TRACE_HIERARCHY) &#123;</div><div class="line">		ViewDebug.trace(<span class="keyword">this</span>, 	ViewDebug.HierarchyTraceType.ON_MEASURE);</div><div class="line">	&#125;</div><div class="line">	onMeasure(widthMeasureSpec, heightMeasureSpec);</div><div class="line">	<span class="keyword">if</span> ((mPrivateFlags &amp; MEASURED_DIMENSION_SET) != 			MEASURED_DIMENSION_SET) &#123;</div><div class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"onMeasure() did not set the"</span></div><div class="line">	+ <span class="string">" measured dimension by calling"</span></div><div class="line">	+ <span class="string">" setMeasuredDimension()"</span>);</div><div class="line">&#125;</div><div class="line">	mPrivateFlags |= LAYOUT_REQUIRED;</div><div class="line">&#125;</div><div class="line">	mOldWidthMeasureSpec = widthMeasureSpec;</div><div class="line">	mOldHeightMeasureSpec = heightMeasureSpec;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意观察，measure()这个方法是final的，因此我们无法在子类中去重写这个方法，说明Android是不允许我们改变View的measure框架的。然后在第9行调用了onMeasure()方法，这里才是真正去测量并设置View大小的地方，默认会调用getDefaultSize()方法来获取视图的大小：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getDefaultSize</span><span class="params">(<span class="keyword">int</span> size, <span class="keyword">int</span> measureSpec)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> result = size;</div><div class="line">	<span class="keyword">int</span> specMode = MeasureSpec.getMode(measureSpec);</div><div class="line">	<span class="keyword">int</span> specSize = MeasureSpec.getSize(measureSpec);</div><div class="line">	<span class="keyword">switch</span> (specMode) &#123;</div><div class="line">	<span class="keyword">case</span> MeasureSpec.UNSPECIFIED:</div><div class="line">		result = size;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	<span class="keyword">case</span> MeasureSpec.AT_MOST:</div><div class="line">	<span class="keyword">case</span> MeasureSpec.EXACTLY:</div><div class="line">		result = specSize;</div><div class="line">		<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里传入的measureSpec是一直从measure()方法中传递过来的。然后调用MeasureSpec.getMode()方法可以解析出specMode，调用MeasureSpec.getSize()方法可以解析出specSize。接下来进行判断，如果specMode等于AT_MOST或EXACTLY就返回specSize，这也是系统默认的行为。之后会在onMeasure()方法中调用setMeasuredDimension()方法来设定测量出的大小，这样一次measure过程就结束了。</p>
-<p>当然，一个界面的展示可能会涉及到很多次的measure，因为一个布局中一般都会包含多个子视图，每个视图都需要经历一次measure过程。ViewGroup中定义了一个measureChildren()方法来去测量子视图的大小，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">measureChildren</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">	<span class="keyword">final</span> <span class="keyword">int</span> size = mChildrenCount;</div><div class="line">	<span class="keyword">final</span> View[] children = mChildren;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; ++i) &#123;</div><div class="line">		<span class="keyword">final</span> View child = children[i];</div><div class="line">		<span class="keyword">if</span> ((child.mViewFlags &amp; VISIBILITY_MASK) != GONE) &#123;</div><div class="line">		measureChild(child, widthMeasureSpec, heightMeasureSpec);</div><div class="line">	&#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里首先会去遍历当前布局下的所有子视图，然后逐个调用measureChild()方法来测量相应子视图的大小，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">measureChild</span><span class="params">(View child, <span class="keyword">int</span> parentWidthMeasureSpec,</span></span></div><div class="line"><span class="keyword">int</span> parentHeightMeasureSpec) &#123;</div><div class="line">	<span class="keyword">final</span> LayoutParams lp = child.getLayoutParams();</div><div class="line">	<span class="keyword">final</span> <span class="keyword">int</span> childWidthMeasureSpec = 									getChildMeasureSpec(parentWidthMeasureSpec,</div><div class="line">		mPaddingLeft + mPaddingRight, lp.width);</div><div class="line">	<span class="keyword">final</span> <span class="keyword">int</span> childHeightMeasureSpec = 									getChildMeasureSpec(parentHeightMeasureSpec,</div><div class="line">		mPaddingTop + mPaddingBottom, lp.height);</div><div class="line">		child.measure(childWidthMeasureSpec, childHeightMeasureSpec);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可以看到，在第4行和第6行分别调用了getChildMeasureSpec()方法来去计算子视图的MeasureSpec，计算的依据就是布局文件中定义的MATCH_PARENT、WRAP_CONTENT等值，这个方法的内部细节就不再贴出。然后在第8行调用子视图的measure()方法，并把计算出的MeasureSpec传递进去，之后的流程就和前面所介绍的一样了。<br>当然，onMeasure()方法是可以重写的，也就是说，如果你不想使用系统默认的测量方式，可以按照自己的意愿进行定制，比如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line"></div><div class="line">	......</div><div class="line">	</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">		setMeasuredDimension(<span class="number">200</span>, <span class="number">200</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样的话就把View默认的测量流程覆盖掉了，不管在布局文件中定义MyView这个视图的大小是多少，最终在界面上显示的大小都将会是200*200。</p>
-<p>需要注意的是，在setMeasuredDimension()方法调用之后，我们才能使用getMeasuredWidth()和getMeasuredHeight()来获取视图测量出的宽高，以此之前调用这两个方法得到的值都会是0。</p>
-<p>由此可见，视图大小的控制是由父视图、布局文件、以及视图本身共同完成的，父视图会提供给子视图参考的大小，而开发人员可以在XML文件中指定视图的大小，然后视图本身会对最终的大小进行拍板。</p>
-<ul>
-<li>onLayout()</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(<span class="keyword">boolean</span> changed, <span class="keyword">int</span> left, <span class="keyword">int</span> top, <span class="keyword">int</span> right, <span class="keyword">int</span> bottom)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>measure过程结束后，视图的大小就已经测量好了，接下来就是layout的过程了。正如其名字所描述的一样，这个方法是用于给视图进行布局的，也就是确定视图的位置。ViewRoot的performTraversals()方法会在measure结束后继续执行，并调用View的layout()方法来执行此过程，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">host.layout(<span class="number">0</span>, <span class="number">0</span>, host.mMeasuredWidth, host.mMeasuredHeight);</div></pre></td></tr></table></figure>
-<p>layout()方法接收四个参数，分别代表着左、上、右、下的坐标，当然这个坐标是相对于当前视图的父视图而言的。可以看到，这里还把刚才测量出的宽度和高度传到了layout()方法中。那么我们来看下layout()方法中的代码是什么样的吧，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">layout</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> t, <span class="keyword">int</span> r, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> oldL = mLeft;</div><div class="line">	<span class="keyword">int</span> oldT = mTop;</div><div class="line">	<span class="keyword">int</span> oldB = mBottom;</div><div class="line">	<span class="keyword">int</span> oldR = mRight;</div><div class="line">	<span class="keyword">boolean</span> changed = setFrame(l, t, r, b);</div><div class="line"><span class="keyword">if</span> (changed || (mPrivateFlags &amp; LAYOUT_REQUIRED) == LAYOUT_REQUIRED) &#123;</div><div class="line">	<span class="keyword">if</span> (ViewDebug.TRACE_HIERARCHY) &#123;</div><div class="line">	ViewDebug.trace(<span class="keyword">this</span>, ViewDebug.HierarchyTraceType.ON_LAYOUT);</div><div class="line">&#125;</div><div class="line">	onLayout(changed, l, t, r, b);</div><div class="line">	mPrivateFlags &amp;= ~LAYOUT_REQUIRED;</div><div class="line"><span class="keyword">if</span> (mOnLayoutChangeListeners != <span class="keyword">null</span>) &#123;</div><div class="line">	ArrayList&lt;OnLayoutChangeListener&gt; listenersCopy =</div><div class="line">	(ArrayList&lt;OnLayoutChangeListener&gt;) 							mOnLayoutChangeListeners.clone();</div><div class="line">	<span class="keyword">int</span> numListeners = listenersCopy.size();</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numListeners; ++i) &#123;</div><div class="line">	listenersCopy.get(i).onLayoutChange(<span class="keyword">this</span>, l, t, r, b, oldL, oldT, oldR, oldB);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">	mPrivateFlags &amp;= ~FORCE_LAYOUT;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在layout()方法中，首先会调用setFrame()方法来判断视图的大小是否发生过变化，以确定有没有必要对当前的视图进行重绘，同时还会在这里把传递过来的四个参数分别赋值给mLeft、mTop、mRight和mBottom这几个变量。接下来会在第11行调用onLayout()方法，正如onMeasure()方法中的默认行为一样，也许你已经迫不及待地想知道onLayout()方法中的默认行为是什么样的了。进入onLayout()方法，这是个空方法，一行代码都没有？！</p>
-<p>没错，View中的onLayout()方法就是一个空方法，因为onLayout()过程是为了确定视图在布局中所在的位置，而这个操作应该是由布局来完成的，即父视图决定子视图的显示位置。既然如此，我们来看下ViewGroup中的onLayout()方法是怎么写的吧，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(<span class="keyword">boolean</span> changed, <span class="keyword">int</span> l, <span class="keyword">int</span> t, <span class="keyword">int</span> r, <span class="keyword">int</span> b)</span></span>;</div></pre></td></tr></table></figure>
-<p>可以看到，ViewGroup中的onLayout()方法竟然是一个抽象方法，这就意味着所有ViewGroup的子类都必须重写这个方法。没错，像LinearLayout、RelativeLayout等布局，都是重写了这个方法，然后在内部按照各自的规则对子视图进行布局的。这里我们尝试自定义一个布局，借此来更深刻地理解onLayout()的过程。自定义的这个布局目标很简单，只要能够包含一个子视图，并且让子视图正常显示出来就可以了。代码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleLayout</span> <span class="keyword">extends</span> <span class="title">ViewGroup</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SimpleLayout</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>(context, attrs);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</div><div class="line">		<span class="keyword">if</span> (getChildCount() &gt; <span class="number">0</span>) &#123;</div><div class="line">			View childView = getChildAt(<span class="number">0</span>);</div><div class="line">			measureChild(childView, widthMeasureSpec, heightMeasureSpec);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(<span class="keyword">boolean</span> changed, <span class="keyword">int</span> l, <span class="keyword">int</span> t, <span class="keyword">int</span> r, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (getChildCount() &gt; <span class="number">0</span>) &#123;</div><div class="line">			View childView = getChildAt(<span class="number">0</span>);</div><div class="line">			childView.layout(<span class="number">0</span>, <span class="number">0</span>, childView.getMeasuredWidth(), childView.getMeasuredHeight());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码非常的简单，我们来看下具体的逻辑吧。你已经知道，onMeasure()方法会在onLayout()方法之前调用，因此这里在onMeasure()方法中判断SimpleLayout中是否有包含一个子视图，如果有的话就调用measureChild()方法来测量出子视图的大小。接着在onLayout()方法中同样判断SimpleLayout是否有包含一个子视图，然后调用这个子视图的layout()方法来确定它在SimpleLayout布局中的位置，这里传入的四个参数依次是0、0、childView.getMeasuredWidth()和childView.getMeasuredHeight()，分别代表着子视图在SimpleLayout中左上右下四个点的坐标。其中，调用childView.getMeasuredWidth()和childView.getMeasuredHeight()方法得到的值就是在onMeasure()方法中测量出的宽和高。这样就已经把SimpleLayout这个布局定义好了，下面就是在XML文件中使用它了，如下所示：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">com.example.viewtest.SimpleLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line"><span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> &gt;</div><div class="line">	</div><div class="line"><span class="tag">&lt;<span class="name">ImageView</span> </span></div><div class="line"><span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line"><span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line"><span class="attr">android:src</span>=<span class="string">"@drawable/ic_launcher"</span></div><div class="line">/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">com.example.viewtest.SimpleLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>可以看到，我们能够像使用普通的布局文件一样使用SimpleLayout，只是注意它只能包含一个子视图，多余的子视图会被舍弃掉。这里SimpleLayout中包含了一个ImageView，并且ImageView的宽高都是wrap_content。</p>
-<p>在onLayout()过程结束后，我们就可以调用getWidth()方法和getHeight()方法来获取视图的宽高了。那么，getWidth()方法和getMeasureWidth()方法到底有什么区别呢？它们的值好像永远都是相同的。其实它们的值之所以会相同基本都是因为布局设计者的编码习惯非常好，实际上它们之间的差别还是挺大的。</p>
-<p>首先getMeasureWidth()方法在measure()过程结束后就可以获取到了，而getWidth()方法要在layout()过程结束后才能获取到。另外，getMeasureWidth()方法中的值是通过setMeasuredDimension()方法来进行设置的，而getWidth()方法中的值则是通过视图右边的坐标减去左边的坐标计算出来的。</p>
-<p>观察SimpleLayout中onLayout()方法的代码，这里给子视图的layout()方法传入的四个参数分别是0、0、childView.getMeasuredWidth()和childView.getMeasuredHeight()，因此getWidth()方法得到的值就是childView.getMeasuredWidth() - 0 = childView.getMeasuredWidth() ，所以此时getWidth()方法和getMeasuredWidth() 得到的值就是相同的，但如果你将onLayout()方法中的代码进行如下修改：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(<span class="keyword">boolean</span> changed, <span class="keyword">int</span> l, <span class="keyword">int</span> t, <span class="keyword">int</span> r, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (getChildCount() &gt; <span class="number">0</span>) &#123;</div><div class="line">		View childView = getChildAt(<span class="number">0</span>);</div><div class="line">		childView.layout(<span class="number">0</span>, <span class="number">0</span>, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样getWidth()方法得到的值就是200 - 0 = 200，不会再和getMeasuredWidth()的值相同了。当然这种做法充分不尊重measure()过程计算出的结果，通常情况下是不推荐这么写的。getHeight()与getMeasureHeight()方法之间的关系同上，就不再重复分析了。</p>
-<ul>
-<li>onDraw()</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>measure和layout的过程都结束后，接下来就进入到draw的过程了。同样，根据名字你就能够判断出，在这里才真正地开始对视图进行绘制。ViewRoot中的代码会继续执行并创建出一个Canvas对象，然后调用View的draw()方法来执行具体的绘制工作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (ViewDebug.TRACE_HIERARCHY) &#123;</div><div class="line">	    ViewDebug.trace(<span class="keyword">this</span>, ViewDebug.HierarchyTraceType.DRAW);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">final</span> <span class="keyword">int</span> privateFlags = mPrivateFlags;</div><div class="line">	<span class="keyword">final</span> <span class="keyword">boolean</span> dirtyOpaque = (privateFlags &amp; DIRTY_MASK) == DIRTY_OPAQUE &amp;&amp;</div><div class="line">	        (mAttachInfo == <span class="keyword">null</span> || !mAttachInfo.mIgnoreDirtyState);</div><div class="line">	mPrivateFlags = (privateFlags &amp; ~DIRTY_MASK) | DRAWN;</div><div class="line">	<span class="comment">// Step 1, draw the background, if needed</span></div><div class="line">	<span class="keyword">int</span> saveCount;</div><div class="line">	<span class="keyword">if</span> (!dirtyOpaque) &#123;</div><div class="line">	    <span class="keyword">final</span> Drawable background = mBGDrawable;</div><div class="line">	    <span class="keyword">if</span> (background != <span class="keyword">null</span>) &#123;</div><div class="line">	        <span class="keyword">final</span> <span class="keyword">int</span> scrollX = mScrollX;</div><div class="line">	        <span class="keyword">final</span> <span class="keyword">int</span> scrollY = mScrollY;</div><div class="line">	        <span class="keyword">if</span> (mBackgroundSizeChanged) &#123;</div><div class="line">	            background.setBounds(<span class="number">0</span>, <span class="number">0</span>,  mRight - mLeft, mBottom - mTop);</div><div class="line">	            mBackgroundSizeChanged = <span class="keyword">false</span>;</div><div class="line">	        &#125;</div><div class="line">	        <span class="keyword">if</span> ((scrollX | scrollY) == <span class="number">0</span>) &#123;</div><div class="line">	            background.draw(canvas);</div><div class="line">	        &#125; <span class="keyword">else</span> &#123;</div><div class="line">	            canvas.translate(scrollX, scrollY);</div><div class="line">	            background.draw(canvas);</div><div class="line">	            canvas.translate(-scrollX, -scrollY);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">final</span> <span class="keyword">int</span> viewFlags = mViewFlags;</div><div class="line">	<span class="keyword">boolean</span> horizontalEdges = (viewFlags &amp; FADING_EDGE_HORIZONTAL) != <span class="number">0</span>;</div><div class="line">	<span class="keyword">boolean</span> verticalEdges = (viewFlags &amp; FADING_EDGE_VERTICAL) != <span class="number">0</span>;</div><div class="line">	<span class="keyword">if</span> (!verticalEdges &amp;&amp; !horizontalEdges) &#123;</div><div class="line">	    <span class="comment">// Step 3, draw the content</span></div><div class="line">	    <span class="keyword">if</span> (!dirtyOpaque) onDraw(canvas);</div><div class="line">	    <span class="comment">// Step 4, draw the children</span></div><div class="line">	    dispatchDraw(canvas);</div><div class="line">	    <span class="comment">// Step 6, draw decorations (scrollbars)</span></div><div class="line">	    onDrawScrollBars(canvas);</div><div class="line">	    <span class="comment">// we're done...</span></div><div class="line">	    <span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可以看到，第一步是从第9行代码开始的，这一步的作用是对视图的背景进行绘制。这里会先得到一个mBGDrawable对象，然后根据layout过程确定的视图位置来设置背景的绘制区域，之后再调用Drawable的draw()方法来完成背景的绘制工作。</p>
-<p>那么这个mBGDrawable对象是从哪里来的呢？其实就是在XML中通过android:background属性设置的图片或颜色。当然你也可以在代码中通过setBackgroundColor()、setBackgroundResource()等方法进行赋值。</p>
-<p>接下来的第三步是在第34行执行的，这一步的作用是对视图的内容进行绘制。可以看到，这里去调用了一下onDraw()方法，那么onDraw()方法里又写了什么代码呢？进去一看你会发现，原来又是个空方法啊。其实也可以理解，因为每个视图的内容部分肯定都是各不相同的，这部分的功能交给子类来去实现也是理所当然的。</p>
-<p>第三步完成之后紧接着会执行第四步，这一步的作用是对当前视图的所有子视图进行绘制。但如果当前的视图没有子视图，那么也就不需要进行绘制了。因此你会发现View中的dispatchDraw()方法又是一个空方法，而ViewGroup的dispatchDraw()方法中就会有具体的绘制代码。以上都执行完后就会进入到第六步，也是最后一步，这一步的作用是对视图的滚动条进行绘制。那么你可能会奇怪，当前的视图又不一定是ListView或者ScrollView，为什么要绘制滚动条呢？其实不管是Button也好，TextView也好，任何一个视图都是有滚动条的，只是一般情况下我们都没有让它显示出来而已。绘制滚动条的代码逻辑也比较复杂，这里就不再贴出来了，因为我们的重点是第三步过程。</p>
-<p>通过以上流程分析，相信大家已经知道，View是不会帮我们绘制内容部分的，因此需要每个视图根据想要展示的内容来自行绘制。如果你去观察TextView、ImageView等类的源码，你会发现它们都有重写onDraw()这个方法，并且在里面执行了相当不少的绘制逻辑。绘制的方式主要是借助Canvas这个类，它会作为参数传入到onDraw()方法中，供给每个视图使用。Canvas这个类的用法非常丰富，基本可以把它当成一块画布，在上面绘制任意的东西。这里简单起见，创建一个非常简单的视图，并且用Canvas随便绘制一点东西，代码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Paint mPaint;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>(context, attrs);</div><div class="line">		mPaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">		mPaint.setColor(Color.YELLOW);</div><div class="line">		canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getHeight(), mPaint);</div><div class="line">		mPaint.setColor(Color.BLUE);</div><div class="line">		mPaint.setTextSize(<span class="number">20</span>);</div><div class="line">		String text = <span class="string">"Hello View"</span>;</div><div class="line">		canvas.drawText(text, <span class="number">0</span>, getHeight() / <span class="number">2</span>, mPaint);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>可以看到，我们创建了一个自定义的MyView继承自View，并在MyView的构造函数中创建了一个Paint对象。Paint就像是一个画笔一样，配合着Canvas就可以进行绘制了。这里我们的绘制逻辑比较简单，在onDraw()方法中先是把画笔设置成黄色，然后调用Canvas的drawRect()方法绘制一个矩形。然后在把画笔设置成蓝色，并调整了一下文字的大小，然后调用drawText()方法绘制了一段文字。就这么简单，一个自定义的视图就已经写好了，现在可以在XML中加入这个视图，如下所示：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line"><span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line"><span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> &gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">com.example.viewtest.MyView</span> </span></div><div class="line"><span class="attr">android:layout_width</span>=<span class="string">"200dp"</span></div><div class="line"><span class="attr">android:layout_height</span>=<span class="string">"100dp"</span></div><div class="line">/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong>Android 中实现 View 的更新有两种方法，一种是invalidate，另一种是postInvalidate，其中前者是在UI线程自身中使用，而后者在非UI线程中使用。</strong></p>
-<ul>
-<li>invalidate()</li>
-</ul>
-<p>View 本身调用迫使 View 重画，在 UI 线程中自身使用，不能直接在线程中调用，如果要使用该方法进行刷新，则我们就需要配合 Handler 。</p>
-<ul>
-<li>postInvalidate()</li>
-</ul>
-<p>与上述方法功能一致，但是不用与 Handler 结合，可以直接在线程中调用。</p>
-<ul>
-<li>requestLayout()</li>
-</ul>
-<p>当view确定自身已经不再适合现有的区域时，该view本身调用这个方法要求parent view（父类的视图）重新调用他的onMeasure onLayout来重新设置自己位置。特别是当view的layoutparameter发生改变，并且它的值还没能应用到view上时，这时候适合调用这个方法。</p>
-<h2 id="自定义-View"><a href="#自定义-View" class="headerlink" title="自定义 View"></a>自定义 View</h2><p>在实际开发中，要做出一些绚丽的界面效果如果仅仅靠系统的控件是远远不够的。这个时候就必须通过自定义 View 来实现这些特定的效果。自定义 View 是一个综合的技术体系，它涉及 View 的层次结构，事件分发机制和 View 的工作原理等技术细节。</p>
-<p><strong>自定义View绘制流程函数调用链</strong> </p>
-<p><img src="/Users/hywel/Desktop/005Xtdi2jw1f638wreu74j30fc0heaay.jpg" alt="005Xtdi2jw1f638wreu74j30fc0heaay"></p>
-<h3 id="自定义-View-的分类"><a href="#自定义-View-的分类" class="headerlink" title="自定义 View 的分类"></a>自定义 View 的分类</h3><p>自定义 View 的分类标准不唯一，可以简单分为4类。</p>
-<ol>
-<li><p>继承 View 重写 onDraw 方法</p>
-<p>这种方法主要用于实现一些不规则的效果，即这种效果不方便通过布局的组合方式来达到，往往需要静态或者动态地显示一些不规则的图形。很显然这需要通过绘制的方式来实现，即重写 onDraw 方法。使用这种方式需要自己支持 wrap_content，并且 padding 也需要自己处理。</p>
-</li>
-<li><p>继承 ViewGroup 派生特殊的 Layout</p>
-<p>这种方法主要用于实现自定义布局，即除了 LinearLayout、RelativeLayout、FrameLayout 这几种系统的布局之外，我们可以重新定义一种新布局，当某种效果看起来很像几种 View 组合在一起的时候，可以采用这种方法来实现。采用这种方式稍微复杂一些，需要合适地处理 ViewGroup 的测量、布局这两个过程，并同时处理子元素的测量和布局处理。</p>
-</li>
-<li><p>继承特定的 View（比如 TextView）</p>
-<p>这种方法比较常见，一般用于扩展某种已有的 View 的功能，比如 TextView，这种方法比较容易实现。这种方法不需要自己支持 wrap_content 和 padding 等。</p>
-</li>
-<li><p>继承特定的 ViewGroup（比如 LinearLayout）</p>
-<p>这种方法也比较常见，当某种效果看起来很像几种 View 组合在一起的时候，可以采用这种方法来实现。采用这种方法不需要自己处理 ViewGroup 的测量和布局这两个过程。需要注意和方法2的区别，一般方法2能实现的效果方法4也能实现，两者主要差别在于方法2更接近 View 底层。</p>
-</li>
-</ol>
-<p>自定义 View 讲究的是灵活性，一种效果可能有很多方法都能实现，我们需要做的就是找到一种代价最小、最高效的方法来实现。</p>
-<h3 id="自定义-View-须知"><a href="#自定义-View-须知" class="headerlink" title="自定义 View 须知"></a>自定义 View 须知</h3><p>一些自定义 View 过程中的注意事项，如果处理不好，则可能会影响 View 的正常使用。</p>
-<ol>
-<li><p>让 View 支持 wrap_content</p>
-<p>直接继承 View 或者 ViewGroup 的控件，如果不在 onMeasure 中对 wrap_content 做特殊处理，那么当外界在布局中使用wrap_content时就无法达到预期的效果。</p>
-</li>
-<li><p>如果有必要，让你的 View 支持padding</p>
-<p>直接继承 View 的控件，如果不在 draw 方法中处理 padding，那么padding属性是无法起作用的。另外，直接继承自 ViewGroup 的控件需要在 onMeasure 和 onLayout 中考虑padding和子元素的 margin 对其造成的影响，不然将导致padding和子元素的 margin 失效。</p>
-</li>
-<li><p>尽量不要在 View 中使用 Handler，不必要</p>
-<p>View 内部就提供了 post 系列的方法，完全可以替代 Handler 的作用，当然除非你很明确地要使用 Handler 来发送信息。</p>
-</li>
-<li><p>View 中如果有线程或者动画，需要及时停止</p>
-<p>如果有线程或者动画需要停止时，那么 onDetachedFromWindow 是一个很好的时机。当包含此 View 的 Activity 退出或者当前 View 被 remove 时，View 的onDetachedFromWindow方法会被调用，和此方法对应的是 onAttachedToWindow，当包含此 View 的 Activity 启动时，View 的onAttachedToWindow方法会被调用。同时，当 View 变得不可见时我们也需要停止线程和动画，如果不及时处理这种问题，有可能会造成内存泄漏。</p>
-</li>
-<li><p>View 带有滑动嵌套情形时，需要处理好滑动冲突</p>
-<p>如果有滑动冲突的话，那么要合适地处理滑动冲突，否则将会严重影响 View 的效果。</p>
-</li>
-</ol>
-<h3 id="自定义-View-的坐标系"><a href="#自定义-View-的坐标系" class="headerlink" title="自定义 View 的坐标系"></a>自定义 View 的坐标系</h3><ul>
-<li><p>注意屏幕坐标系和数学坐标系的区别</p>
-<p>移动设备一般定义屏幕的左上角为坐标原点，向右为 x 轴增大方向，向下为 y 轴的增大方向。如下所示：</p>
-<p><strong>PS：其中的∠a 是对应的，注意y轴方向！</strong></p>
-<p>​</p>
-<p> <img src="/Users/hywel/Desktop/005Xtdi2jw1f1qygzfvhoj308c0dwglr.jpg" alt="005Xtdi2jw1f1qygzfvhoj308c0dwglr"></p>
-<pre><code>![005Xtdi2jw1f1qyhbqvihj308c0dwjrh](/Users/hywel/Desktop/005Xtdi2jw1f1qyhbqvihj308c0dwjrh.jpg)
-</code></pre></li>
-</ul>
-<p>实际屏幕上的默认坐标系如下：</p>
-<blockquote>
-<p>假设其中的棕色部分为手机屏幕</p>
-</blockquote>
-<p>​         <img src="/Users/hywel/Desktop/005Xtdi2jw1f1qyhjy7h8j308c0dwq32.jpg" alt="005Xtdi2jw1f1qyhjy7h8j308c0dwq32"></p>
-<ul>
-<li><p>View 的坐标系</p>
-<p><strong>View 的坐标系是相对于父控件而言的</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">getTop();       <span class="comment">//获取子View左上角距父View顶部的距离</span></div><div class="line">getLeft();      <span class="comment">//获取子View左上角距父View左侧的距离</span></div><div class="line">getBottom();    <span class="comment">//获取子View右下角距父View顶部的距离</span></div><div class="line">getRight();     <span class="comment">//获取子View右下角距父View左侧的距离</span></div></pre></td></tr></table></figure>
-<p> <img src="/Users/hywel/Desktop/005Xtdi2gw1f1qzqwvkkbj308c0dwgm9.jpg" alt="005Xtdi2gw1f1qzqwvkkbj308c0dwgm9"></p>
-</li>
-</ul>
-<ul>
-<li><p>MotionEvent中 get 和 getRaw 的区别</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">event.getX();       <span class="comment">//触摸点相对于其所在组件坐标系的坐标</span></div><div class="line">event.getY();</div><div class="line"></div><div class="line">event.getRawX();    <span class="comment">//触摸点相对于屏幕默认坐标系的坐标</span></div><div class="line">event.getRawY();</div></pre></td></tr></table></figure>
-<p><strong>其中相同颜色的内容是对应的，其中为了显示方便，蓝色箭头向左稍微偏移了一点.</strong></p>
-<p> <img src="/Users/hywel/Desktop/005Xtdi2jw1f1r2bdlqhbj308c0dwwew.jpg" alt="005Xtdi2jw1f1r2bdlqhbj308c0dwwew"></p>
-</li>
-</ul>
-<h3 id="自定义-View-事件处理"><a href="#自定义-View-事件处理" class="headerlink" title="自定义 View 事件处理"></a>自定义 View 事件处理</h3><p>在自定义 View 的过程中，经常要处理一些View事件相关的东西。比如 Touch 事件，下面做简单描述：</p>
-<ul>
-<li><p>Touch 事件传递规则分析</p>
-<p>Touch 事件是包装在 MotionEvent 对象中的，在手指与屏幕接触的过程中产生一系列事件，比较典型的是以下三种：</p>
-<ul>
-<li>ACTION_DOWN: 手指刚接触屏幕的瞬间</li>
-<li>ACTION_UP: 手指刚离开屏幕的瞬间</li>
-<li>ACTION_MOVE: 手指在屏幕上滑动</li>
-</ul>
-</li>
-</ul>
-<font color="green"><strong>事件分发：public boolean dispatchTouchEvent(MotionEvent ev)</strong></font>
-
-<p>Touch事件发生时Activity的dispatchTouchEvent(MotionEvent ev)方法会将事件传递给最外层View的dispatchTouchEvent(MotionEvent ev)方法，该方法对事件进行分发。分发逻辑如下：</p>
-<pre><code>如果return true，事件会由当前View的dispatchTouchEvent方法进行消费，同时事件会停止向下传递；
-
-如果return false，事件分发分为两种情况：
-
-    如果当前 View 获取的事件直接来自 Activity，则会将事件返回给Activity的onTouchEvent进行消费；
-
-    如果当前 View 获取的事件来自外层父控件，则会将事件返回给父View的onTouchEvent进行消费。
-
-如果return super.dispatchTouchEvent(ev)，事件会自动的分发给当前View的onInterceptTouchEvent方法。
-</code></pre><font color="green"><strong>事件拦截：public boolean onInterceptTouchEvent(MotionEvent ev)</strong></font>
-
-<p>正如上面所说，如果在dispatchTouchEvent返回super.dispatchTouchEvent(ev)，那么事件将会传递到onInterceptTouchEvent方法，该方法对事件进行拦截。拦截逻辑如下：</p>
-<p>​    如果return true,则表示拦截该事件，并将事件传递给当前 View 的 onTouchEvent 方法；</p>
-<p>​    如果 return false,则表示不拦截该事件，并将该事件交由子 View的dispatchTouchEvent方法进行事件分发，重复上述过程；</p>
-<p>​    如果 return super.onInterceptTouchEvent(ev)，默认表示拦截该事件，并将事件传递给当前 View 的onTouchEvent方法，和 return true 一样。</p>
-<font color="green"><strong>事件响应：public boolean onTouchEvent(MotionEvent ev)</strong></font>
-
-<p>上面已经提到，在dispatchTouchEvent（事件分发）返回super.dispatchTouchEvent(ev)并且onInterceptTouchEvent（事件拦截返回true或super.onInterceptTouchEvent(ev)的情况下，那么事件会传递到onTouchEvent方法，该方法对事件进行响应。响应逻辑如下：</p>
-<p>如果return true，则表示响应并消费该事件；</p>
-<p>如果return fasle，则表示不响应事件，那么该事件将会不断向上层View的onTouchEvent方法传递，直到某个View的onTouchEvent方法返回true，如果到了最顶层View还是返回false，那么认为该事件不消耗，则在同一个事件系列中，当前View无法再次接收到事件，该事件会交由Activity的onTouchEvent进行处理；</p>
-<p>如果return super.dispatchTouchEvent(ev)，则表示不响应事件，结果与return false一样。<br>这里也顺便说一下，如果一个View同时监听了onTouch事件和onClick事件，则在onTouchEvent里面应该返回false，否则点击事件就无法监听到。</p>
-<h3 id="自定义-View滑动冲突处理"><a href="#自定义-View滑动冲突处理" class="headerlink" title="自定义 View滑动冲突处理"></a>自定义 View滑动冲突处理</h3><p>滑动冲突多出现在滑动嵌套的场景，比如一个界面里可能有两个或两个以上的 View 同时可以滑动，那么就可能导致只有一个 View 可以滑动。一个简单的屏幕触摸动作触发了一系列 Touch 事件：ACTION_DOWN-&gt;ACTION_MOVE-&gt;ACTION_MOVE-&gt;ACTION_MOVE…-&gt;ACTION_UP。</p>
-<p>滑动冲突的场景主要有三种：</p>
-<ol>
-<li><p>一个页面中同时存在左右滑动和上下滑动</p>
-<p>让外部的 View 拦截滑动事件，判断滑动的特征。如果水平滑动距离&gt;竖直滑动距离，则为水平滑动，反之为竖直滑动。假设内部 View 可以水平滑动，而外部 View 可以竖直滑动，那么在外部 View 的onInterceptTouchEvent()方法判断，如果触摸事件为水平滑动，则应该返回 false，交由内部 View来处理，这样内部的子 View 就可以实现水平滑动。</p>
-</li>
-<li><p>同时存在两个竖直或水平滑动</p>
-<p>这种情况下还主要得根据具体的需求分析。最简单的就是假如两个 ScrollView 嵌套，一般可以判断 ACTION_DOWN在哪个 View 上，就执行哪个 View 的滑动事件。</p>
-</li>
-<li><p>上面1和2同时存在的情况</p>
-<p>根据具体业务需求和滑动策略来处理。</p>
-</li>
-</ol>
-<h3 id="自定义-View-示例"><a href="#自定义-View-示例" class="headerlink" title="自定义 View 示例"></a>自定义 View 示例</h3><p> <img src="/Users/hywel/Desktop/CustomView.png" alt="CustomView"></p>
-<h4 id="简单的导航栏（复合式自定义-View-类型）"><a href="#简单的导航栏（复合式自定义-View-类型）" class="headerlink" title="简单的导航栏（复合式自定义 View 类型）"></a>简单的导航栏（复合式自定义 View 类型）</h4><blockquote>
-<p>复合式自定义View就是将我们平时用到一些单个的view组合起来，并对该组合控件进行属性自定义、暴露交互接口等，来实现我们的复合式自定义view。</p>
-</blockquote>
-<p>项目中，经常需要用到导航栏，为了统一样式方便利用。做一个简单的导航栏示例，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomNaviBar</span> <span class="keyword">extends</span> <span class="title">LinearLayout</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> View rootView;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Left navigator button</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> Button mLeftButton;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Right navigator button</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> Button mRightButton;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Central title text</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> TextView mTitleTextView;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Navigator area</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> RelativeLayout mNaviLayout;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomNaviBar</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">        mContext = context;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomNaviBar</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        mContext = context;</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="comment">//通过 layout 资源引用</span></div><div class="line">        rootView = LayoutInflater.from(mContext).inflate(R.layout.custom_navibar_layout, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">        mNaviLayout = (RelativeLayout) rootView.findViewById(R.id.navi_bg);</div><div class="line">        mLeftButton = (Button) rootView.findViewById(R.id.left_btn);</div><div class="line">        mLeftButton.</div><div class="line">  setOnClickListener(mLeftButtonClickListener);</div><div class="line">        </div><div class="line">  		mRightButton = (Button) rootView.findViewById(R.id.right_btn);</div><div class="line"> 		mRightButton.              setOnClickListener(mRightButtonClickListener);</div><div class="line">        mTitleTextView = (TextView) rootView.findViewById(R.id.title_text);</div><div class="line">    &#125;</div><div class="line">  </div><div class="line">   <span class="keyword">private</span> OnClickListener mLeftButtonClickListener = <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">            Toast.makeText(mContext, <span class="string">"Back!"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> OnClickListener mRightButtonClickListener = <span class="keyword">new</span> OnClickListener() &#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">            Toast.makeText(mContext, <span class="string">"Menu!"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">  <span class="comment">/**</span></div><div class="line">     * 设置导航栏背景色</div><div class="line">     * </div><div class="line">     * <span class="doctag">@param</span> colorString</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNaviLayouBackground</span><span class="params">(String colorString)</span> </span>&#123;</div><div class="line">        mNaviLayout.setBackgroundColor(Color.parseColor(colorString));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置标题</div><div class="line">     * </div><div class="line">     * <span class="doctag">@param</span> title</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitleText</span><span class="params">(String title)</span> </span>&#123;</div><div class="line">        mTitleTextView.setText(title);</div><div class="line">    &#125;</div><div class="line"><span class="comment">/**</span></div><div class="line">     * 设置标题是否显示</div><div class="line">     * </div><div class="line">     * <span class="doctag">@param</span> isShow</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitleVisibility</span><span class="params">(<span class="keyword">boolean</span> isShow)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (isShow) &#123;</div><div class="line">            mTitleTextView.setVisibility(View.VISIBLE);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mTitleTextView.setVisibility(View.GONE);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置左侧按钮文案</div><div class="line">     * </div><div class="line">     * <span class="doctag">@param</span> title</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeftButtonText</span><span class="params">(String title)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(title)) &#123;</div><div class="line">            mLeftButton.setVisibility(View.INVISIBLE);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        mLeftButton.setText(title);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置左侧按钮是否显示</div><div class="line">     * </div><div class="line">     * <span class="doctag">@param</span> isShow</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeftButtonVisibility</span><span class="params">(<span class="keyword">boolean</span> isShow)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (isShow) &#123;</div><div class="line">            mLeftButton.setVisibility(View.VISIBLE);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mLeftButton.setVisibility(View.GONE);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置右侧按钮文案</div><div class="line">     * </div><div class="line">     * <span class="doctag">@param</span> title</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRightButtonText</span><span class="params">(String title)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(title)) &#123;</div><div class="line">            mRightButton.setVisibility(View.INVISIBLE);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        mRightButton.setText(title);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置右侧按钮是否显示</div><div class="line">     * </div><div class="line">     * <span class="doctag">@param</span> isShow</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRightButtonVisibility</span><span class="params">(<span class="keyword">boolean</span> isShow)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (isShow) &#123;</div><div class="line">            mRightButton.setVisibility(View.VISIBLE);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mRightButton.setVisibility(View.GONE);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当然，也可以通过在 values/attr 下面定义 styleable 属性来自定义本 View</p>
-<h4 id="计数-View（完全自定义-View-类型）"><a href="#计数-View（完全自定义-View-类型）" class="headerlink" title="计数 View（完全自定义 View 类型）"></a>计数 View（完全自定义 View 类型）</h4><blockquote>
-<p>完全自定义式的自定义View就是通过重写View来实现一些全新控件。</p>
-</blockquote>
-<p>自定义 View实现一个点击计数的 View 视图。它集成自View，重写了 onDraw 方法。代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CounterView</span> <span class="keyword">extends</span> <span class="title">View</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span> </span>&#123;</div><div class="line">	<span class="comment">//画笔</span></div><div class="line">    <span class="keyword">private</span> Paint paint;</div><div class="line">	<span class="comment">//矩形</span></div><div class="line">    <span class="keyword">private</span> Rect rect;</div><div class="line">	<span class="comment">//次数</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CounterView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line"></div><div class="line">        paint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</div><div class="line">        rect = <span class="keyword">new</span> Rect();</div><div class="line">        setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        count++;</div><div class="line">        invalidate();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">		paint.           setColor(Color.parseColor(<span class="string">"#a0d00d"</span>));</div><div class="line">        canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, getWidth(), getHeight(), paint);</div><div class="line">        paint.setColor(Color.YELLOW);</div><div class="line">        paint.setTextSize(<span class="number">50</span>);</div><div class="line">        String text = String.valueOf(count);</div><div class="line">        paint.getTextBounds(text, <span class="number">0</span>, text.length(), rect);</div><div class="line">        <span class="keyword">float</span> width = rect.width();</div><div class="line">        <span class="keyword">float</span> height = rect.height();</div><div class="line">        canvas.drawText(text, getWidth() / <span class="number">2</span> - width / <span class="number">2</span>, getHeight() / <span class="number">2</span> + height / <span class="number">2</span>, paint);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="闪光-TextView（扩展式自定义-View-类型）"><a href="#闪光-TextView（扩展式自定义-View-类型）" class="headerlink" title="闪光 TextView（扩展式自定义 View 类型）"></a>闪光 TextView（扩展式自定义 View 类型）</h4><blockquote>
-<p>扩展式自定义View就是通过继承现有的控件并更改一些功能或效果来实现的一种自定义View。</p>
-</blockquote>
-<p>本 View 继承自TextView，实现不断闪光的效果。代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShiningTextView</span> <span class="keyword">extends</span> <span class="title">TextView</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> mViewWidth;</div><div class="line"></div><div class="line">    LinearGradient mLinearGradient;</div><div class="line"></div><div class="line">    Matrix mMatrix;</div><div class="line"></div><div class="line">    Paint mPaint;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> mTranslate = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ShiningTextView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onSizeChanged(w, h, oldw, oldh);</div><div class="line"><span class="comment">//        Log.i("xhw", "onSizeChanged-----&gt;");</span></div><div class="line"></div><div class="line">        <span class="comment">// 在 onSizeChanged 方法中获取到宽度，并对各个类进行初始化</span></div><div class="line">        <span class="keyword">if</span> (mViewWidth == <span class="number">0</span>) &#123;</div><div class="line">            mViewWidth = getMeasuredWidth();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (mViewWidth &gt; <span class="number">0</span>) &#123;</div><div class="line">                <span class="comment">// 得到父类 TextView 中写字的那支笔</span></div><div class="line">                mPaint = getPaint();</div><div class="line">                <span class="comment">// 初始化线性渲染器</span></div><div class="line">                mLinearGradient = <span class="keyword">new</span> LinearGradient(<span class="number">0</span>, <span class="number">0</span>, mViewWidth, <span class="number">0</span>, <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</div><div class="line">                        Color.BLUE, Color.YELLOW, Color.RED, Color.GREEN</div><div class="line">                &#125;, <span class="keyword">null</span>, Shader.TileMode.CLAMP);</div><div class="line">                <span class="comment">// 把渲染器给笔套上</span></div><div class="line">                mPaint.setShader(mLinearGradient);</div><div class="line">                <span class="comment">// 初始化 Matrix</span></div><div class="line">                mMatrix = <span class="keyword">new</span> Matrix();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="comment">// 先让父类方法执行，由于上面我们给父类的 Paint 套上了渲染器，所以这里出现的文字已经是彩色的了</span></div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line"><span class="comment">//        Log.i("xhw", "onDraw-----&gt;");</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> (mMatrix != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="comment">// 利用 Matrix 的平移动作实现霓虹灯的效果，这里是每次滚动1/10</span></div><div class="line">            mTranslate += mViewWidth / <span class="number">10</span>;</div><div class="line">            <span class="comment">// 如果滚出了控件边界，就要拉回来重置开头，这里重置到了屏幕左边的空间</span></div><div class="line">            <span class="keyword">if</span> (mTranslate &gt; mViewWidth) &#123;</div><div class="line">                mTranslate = -mViewWidth / <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 设置平移距离</span></div><div class="line">            mMatrix.setTranslate(mTranslate, <span class="number">0</span>);</div><div class="line">            <span class="comment">// 平移效果生效</span></div><div class="line">            </div><div class="line">          mLinearGradient.setLocalMatrix(mMatrix);</div><div class="line">            <span class="comment">// 延迟 100 毫秒再次刷新 View 也就是再次执行本 onDraw 方法</span></div><div class="line">            postInvalidateDelayed(<span class="number">100</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<p>​
+        
+          <p class="article-more-link">
+            <a href="/2016/08/18/自定义View的简单总结/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/18/自定义View的简单总结/" data-id="cixn8mohm000l2ds6782pdbap" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/18/自定义View的简单总结/" data-id="cixndbiyy000k3fs6n9xjzq00" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -606,203 +247,20 @@
 </li>
 </ul>
 <ul>
-<li>性能取决于以下三个因素( 我们会在下面讲解)<ul>
+<li><p>性能取决于以下三个因素( 我们会在下面讲解)</p>
+<ul>
 <li>CPU如何操纵特定的数据类型</li>
 <li>数据和指令需要占用多少存储空间</li>
 </ul>
-</li>
-</ul>
-<h3 id="二、采用合适的数据类型"><a href="#二、采用合适的数据类型" class="headerlink" title="二、采用合适的数据类型"></a>二、采用合适的数据类型</h3><ul>
-<li>使用long比short和int慢。同样，只使用double及混用float和double，比只用float慢。</li>
-</ul>
-<p><strong>注意：由于并不是所有指令的执行时间都相同，再加上cpu很复杂，所以并不能推测出具体的时间。</strong></p>
-<ul>
-<li><p>short数组排序远比其他类型数组快</p>
-<ul>
-<li><p>原因： short使用计数排序，算法复杂度是线性的</p>
-<p>而int和long使用快速排序算法</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>处理64位类型(long或double)比处理32位类型慢</li>
-</ul>
-<p>总的来说，<br>就是:</p>
-<ol>
-<li>处理大量数据时，使用可以满足要求的最小数据类型</li>
-<li>避免类型转换。尽量保持类型一致，尽可能在计算中使用单一类型。</li>
-<li>如果有必要取得更好的性能，推倒重来，但要认真处理。</li>
-</ol>
-<h3 id="三、你需要知道的访问内存"><a href="#三、你需要知道的访问内存" class="headerlink" title="三、你需要知道的访问内存"></a>三、你需要知道的访问内存</h3><ol>
-<li><p>操纵较大类型的数据代价较高，因为用到了指令较多。 直观的来说，指令越多性能越差，CPU需要做很多额外的工作</p>
-</li>
-<li><p>此外、代码和数据都驻留在内存中，访问内存本身也有开销。 因为访问内存会产生一些开销，CPU会把最近访问的内容缓存起来，无论是内存读还是写。</p>
-</li>
-<li><p>CPU通常使用两级缓存或者三级缓存：</p>
-<ul>
-<li>一级缓存</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>二级缓存</li>
-</ul>
-<ul>
-<li><p>三级缓存(一般用于服务器机或游戏机器)</p>
-<p> ​</p>
-</li>
-</ul>
-<ol>
-<li>当数据或指令在缓存中找不到时，就是缓存未命中。这是需要从内存中读取数据或指令。</li>
-</ol>
-<p>缓存未命中几种情况：</p>
-<ul>
-<li>指令缓存读未命中</li>
-</ul>
-<ul>
-<li>数据缓存读未命中</li>
-</ul>
-<ul>
-<li>写未命中</li>
-</ul>
-<p><strong>注意：第一种缓存未命中最关键，因为CPU要一直等到从内存中读出指令，才可以继续执行。</strong></p>
-<p>另外：现代CPU都能够自动预取内存，为了避免或者只说是限制了缓存未命中情况的发生。</p>
-<h3 id="四、通过垃圾收集管理内存"><a href="#四、通过垃圾收集管理内存" class="headerlink" title="四、通过垃圾收集管理内存"></a>四、通过垃圾收集管理内存</h3><p>1、Java的一个非常重要的优点是垃圾收集</p>
-<p>原理： 不再使用的对象内存会被垃圾收集器释放(回收)。<br>注意：还是会出现内存泄露的情况。<br>垃圾收集器会帮你管理内存，它做的不仅仅是释放不用的内存。<br>2、内存泄漏：</p>
-<p>只有当某个对象不再被引用时，它的内存才会被回收，当该被释放的对象引用仍然存在时就会发生内存泄漏。<br>一个典型例子就是，由于屏幕旋转，整个Activity对象会有泄露 很严重！因为Activity对象占用相当多内存。<br>3、 避免内存泄漏方案。(大多数只能用来分析，并不会告诉你是否内存泄漏)</p>
-<p>DDMS视图里面的Heap与Tracker 可以跟踪内存使用和分配情况。 AS里面的monitor 有内存、网络、等四个视图<br>StrictMode类 会将检测到的违规操作，将结果写到日志中。 只能用来分析，并不会告诉你是否内存泄漏<br>OneAPM 用过，并且也去面试过，很不错。</p>
-<h3 id="五、通过Java中的引用来更好的管理"><a href="#五、通过Java中的引用来更好的管理" class="headerlink" title="五、通过Java中的引用来更好的管理"></a>五、通过Java中的引用来更好的管理</h3><p>1、内存释放是垃圾收集器的一个重要的特性，在垃圾收集器中它的作用比在内存管理系统中大得多。</p>
-<p>2、Java定义了4中类型的引用</p>
-<ul>
-<li><p>强（Strong）:</p>
-<pre><code>其实就是普通的创建对象，保持无用对象的强引用可能会导致内存泄漏
-</code></pre></li>
-<li><p>软（Soft）:</p>
-<pre><code>其实软引用和弱引用在本质上是类似的，软引用适用于缓存，它可以自动删除缓存中的条目
-</code></pre></li>
-<li><p>虚（Phantom）：</p>
-<pre><code>几乎很少用到
-</code></pre></li>
-</ul>
-<ul>
-<li><p>弱（Weak）：</p>
-<pre><code>保障下次垃圾回收时基本会收走
-</code></pre></li>
-</ul>
-<p>3、当需要缓存或映射时，你不必实现类似的内存管理系统。精心规划引用后，大部分工作可以放心地交给垃圾收集器完成。</p>
-<p>4、 垃圾收集<br>垃圾收集可能会再不定的时间触发，你几乎无法控制它的时机。<br>但是有时，你可以通过System.gc( );提醒一下Android，<br>虽然如此，垃圾收集机制发生时间最终时间是不由你确定的。</p>
-<p>5、 垃圾收集发生在应用的主线程，所以：</p>
-<ul>
-<li>很可能降低响应速度和性能。</li>
-</ul>
-<ul>
-<li>在及时游戏中会出现丢帧，因为有太多时间花在垃圾收集上。</li>
-</ul>
-<ul>
-<li>Andorid2.3有了转机，垃圾收集工作转移到了一个单独的线程。比以前的Android版本好太多了</li>
-</ul>
-<h3 id="六、通过系统的API可以了解、管理内存"><a href="#六、通过系统的API可以了解、管理内存" class="headerlink" title="六、通过系统的API可以了解、管理内存"></a>六、通过系统的API可以了解、管理内存</h3><p>1、 Android定义了几个API，你可以用他们来了解系统中还剩多少可用内存和用了多少内存</p>
-<p>ActivityManager的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getMomoryInfo();    </div><div class="line"></div><div class="line">getMomoryClass();    </div><div class="line"></div><div class="line">getLargeMeoryClass();</div></pre></td></tr></table></figure>
-<p>Debug的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dumpHprofData();</div><div class="line"></div><div class="line">getNativeHeapAllocatedSize();</div><div class="line"></div><div class="line">getNativeHeapSize();</div></pre></td></tr></table></figure>
-<p>提示：<br><strong>在应用的manifest文件中把android：largeHeap设为true，就可以让应用使用更大的堆。</strong></p>
-<h3 id="七、当内存少的时候可以这样处理"><a href="#七、当内存少的时候可以这样处理" class="headerlink" title="七、当内存少的时候可以这样处理"></a>七、当内存少的时候可以这样处理</h3><p>ComponentCallbacks接口定义了API onLowMomory( ),它对所有应用组&gt; 件都是相同的。当它被调用时，组件基本会被要求释放那些并不会用到的内存。<br>可以被释放的内容：</p>
-<ul>
-<li>缓存或缓存条目（如使用强引用的LruCache）</li>
-</ul>
-<ul>
-<li>可以再次按需生成的位图对象</li>
-</ul>
-<ul>
-<li>不可见的布局对象</li>
-</ul>
-<ul>
-<li>数据库对象</li>
-</ul>
-<h3 id="八、通过5R法来对ANDROID内存进行优化："><a href="#八、通过5R法来对ANDROID内存进行优化：" class="headerlink" title="八、通过5R法来对ANDROID内存进行优化："></a>八、通过5R法来对ANDROID内存进行优化：</h3><p>1.Reckon（计算）</p>
-<blockquote>
-<p>首先需要知道你的app所消耗内存的情况，知己知彼才能百战不殆</p>
-<p>通过上文提到的工具进行查看消耗，这里再给大家推荐一个工具</p>
-<p>Memory Analysis Tool（MAT）：</p>
-<p>可以转换成饼图和表格，直观、好用。</p>
-</blockquote>
-<p>2.Reduce（减少）</p>
-<blockquote>
-<p>Reduce的意思就是减少，直接减少内存的使用是最有效的优化方式。</p>
-<p>例如：</p>
-<p>Bitmap：</p>
-<p>Bitmap是内存消耗大户，绝大多数的OOM崩溃都是在操作Bitmap时产生的，下面来看看几个处理图片的方法：</p>
-</blockquote>
-<p>图片显示：</p>
-<blockquote>
-<p>例如在列表中仅用于预览时加载缩略图（thumbnails ）。</p>
-<p>只有当用户点击具体条目想看详细信息的时候，这时另启动一个fragment／activity／对话框等等，去显示整个图片</p>
-</blockquote>
-<p>图片大小：</p>
-<blockquote>
-<p>使用BitmapFactory.Options设置inSampleSize, 这样做可以减少对系统资源的要求。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">BitmapFactory.Options bitmapFactoryOptions = <span class="keyword">new</span> BitmapFactory.Options();  </div><div class="line"> bitmapFactoryOptions.inJustDecodeBounds = <span class="keyword">true</span>;  </div><div class="line"> bitmapFactoryOptions.inSampleSize = <span class="number">2</span>;  </div><div class="line"> <span class="comment">// 这里一定要将其设置回false，因为之前我们将其设置成了true    </span></div><div class="line"></div><div class="line"> <span class="comment">// 设置inJustDecodeBounds为true后，decodeFile并不分配空间，即，BitmapFactory解码出来的Bitmap为Null,但可计算出原始图片的长度和宽度    </span></div><div class="line"></div><div class="line"> options.inJustDecodeBounds = <span class="keyword">false</span>;  </div><div class="line"></div><div class="line"> Bitmap bmp = BitmapFactory.decodeFile(sourceBitmap, options);</div></pre></td></tr></table></figure>
-<p>图片像素：</p>
-<blockquote>
-<p>Android中图片有四种属性，分别是：</p>
-<p>ALPHA<em>8：每个像素占用1byte内存</em></p>
-<p>_ARGB_4444：每个像素占用2byte内存</p>
-<p>ARGB<em>8888：每个像素占用4byte内存 （默认）</em></p>
-<p>RGB_565：每个像素占用2byte内存</p>
-</blockquote>
-<p>Android默认的颜色模式为ARGB_8888，这个颜色模式色彩最细腻，显示质量最高。但同样的，占用的内存也最大。 所以在对图片效果不是特别高的情况下使用RGB_565（565没有透明度属性），如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">BitmapreadBitMap</span><span class="params">(Contextcontext, intresId)</span> </span>&#123;  </div><div class="line"></div><div class="line">     BitmapFactory.Optionsopt = newBitmapFactory.Options();  </div><div class="line">     opt.inPreferredConfig = Bitmap.Config.RGB_565;  </div><div class="line">     opt.inPurgeable = <span class="keyword">true</span>;  </div><div class="line">     opt.inInputShareable = <span class="keyword">true</span>;  </div><div class="line">     <span class="comment">//获取资源图片   </span></div><div class="line">     InputStream is = context.getResources().openRawResource(resId);  </div><div class="line">     <span class="keyword">return</span> BitmapFactory.decodeStream(is, <span class="keyword">null</span>, opt);  </div><div class="line"></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>图片回收：</p>
-<blockquote>
-<p>使用Bitmap过后，就需要及时的调用Bitmap.recycle()方法来释放Bitmap占用的内存空间，而不要等Android系统来进行释放。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bitmap.recycle();  </div><div class="line">bitmap = <span class="keyword">null</span>;</div></pre></td></tr></table></figure>
-<p>捕获异常：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Bitmap bitmap = <span class="keyword">null</span>;  </div><div class="line"></div><div class="line"> <span class="keyword">try</span> &#123;  </div><div class="line">    <span class="comment">// 实例化Bitmap  </span></div><div class="line">    bitmap = BitmapFactory.decodeFile(path);  </div><div class="line"> &#125; <span class="keyword">catch</span> (OutOfMemoryError e) &#123;  </div><div class="line">     <span class="comment">// 捕获OutOfMemoryError，避免直接崩溃  </span></div><div class="line">&#125;  </div><div class="line"> <span class="keyword">if</span> (bitmap == <span class="keyword">null</span>) &#123;  </div><div class="line">     <span class="comment">// 如果实例化失败 返回默认的Bitmap对象  </span></div><div class="line">     <span class="keyword">return</span> defaultBitmapMap;  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>修改引用：</p>
-<blockquote>
-<p>如果只是想避免OutOfMemory异常的发生，则可以使用软引用。如果对于应用的性能更在意，想尽快回收一些占用内存比较大的对象，则可以使用弱引用。</p>
-<p>另外，和弱引用功能类似的是WeakHashMap。WeakHashMap对于一个给定的键，其映射的存在并不阻止垃圾回收器对该键的回收，回收以后，其条目从映射中有效地移除。WeakHashMap使用ReferenceQueue实现的这种机制。</p>
-</blockquote>
-<h3 id="3-Reuse（重用）"><a href="#3-Reuse（重用）" class="headerlink" title="3.Reuse（重用）"></a>3.Reuse（重用）</h3><blockquote>
-<p>核心思路就是将已经存在的内存资源重新使用而避免去创建新的，最典型的使用就是缓存（Cache）和池（Pool）。</p>
-</blockquote>
-<h3 id="4-Recycle（回收）"><a href="#4-Recycle（回收）" class="headerlink" title="4.Recycle（回收）"></a>4.Recycle（回收）</h3><p>Thread（线程）回收：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Thread t = <span class="keyword">new</span> Thread() &#123;  </div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </div><div class="line">         <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;  </div><div class="line">             <span class="keyword">try</span> &#123;  </div><div class="line">                 Thread.sleep(<span class="number">1000</span>);  </div><div class="line">                 System.out.println(<span class="string">"thread is running..."</span>);  </div><div class="line">             &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </div><div class="line">    </div><div class="line">             &#125;  </div><div class="line">        &#125;  </div><div class="line">     &#125;  </div><div class="line"></div><div class="line"> &#125;;  </div><div class="line"></div><div class="line"> t.start();  </div><div class="line"></div><div class="line"> t = <span class="keyword">null</span>;  </div><div class="line"></div><div class="line"> System.gc();</div></pre></td></tr></table></figure>
-<p>Cursor（游标）回收：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span>    </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;          </div><div class="line"></div><div class="line">     <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; mAdapter.getCurosr() != <span class="keyword">null</span>) &#123;    </div><div class="line">         mAdapter.getCursor().close();    </div><div class="line">    &#125;    </div><div class="line">     <span class="keyword">super</span>.onDestroy();     </div><div class="line"></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>还有接收器、流等等。</p>
-<h3 id="5-Review（检查）"><a href="#5-Review（检查）" class="headerlink" title="5.Review（检查）"></a>5.Review（检查）</h3><p>Code Review（代码检查）：</p>
-<blockquote>
-<p>Code Review主要检查代码中存在的一些不合理或可以改进优化的地方，</p>
-</blockquote>
-<p>UI Review（视图检查）：</p>
-<blockquote>
-<p>Android对于视图中控件的布局渲染等会消耗很多的资源和内存，所以这部分也是我们需要注意的。</p>
-<ul>
-<li>减少视图层级;</li>
-<li>减少视图层级可以有效的减少内存消耗，因为视图是一个树形结构，每次刷新和渲染都会遍历一次。</li>
-</ul>
-</blockquote>
-<p>hierarchyviewer：</p>
-<blockquote>
-<p>想要减少视图层级首先就需要知道视图层级，所以下面介绍一个SDK中自带的一个非常好用的工具hierarchyviewer。</p>
-<p>你可以在下面的地址找到它：your sdk path\sdk\tools</p>
-</blockquote>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
-<p>删除对象应该仔细考虑，因为重新创建是需要开销的。</p>
-<p>如果没有释放出足够的内存可能会导致Android系统更激进的行为(如杀死进程)。</p>
-<p>如果应用进程被杀掉了，用户下次使用又要从头开始。因此，应用不仅要表现出色，也要释放尽可能多的资源。 代码中推迟初始化是一个好的方式。</p>
-<p>内存在嵌入式设备上是稀缺资源。尽管今天的手机和平板电脑的内存越来越多， 但这些设备也在运行越来越复杂的系统和应用。有效的使用内存， 不仅可以使应用在旧设备上运行时占用较少的内存， 还可以让程序跑的更快。请记住，应用对内存的需求是无止境的。</p>
-</blockquote>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/08/04/Andoird优化VS内存优化/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/04/Andoird优化VS内存优化/" data-id="cixn8mohc00072ds65xyt6qsq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/04/Andoird优化VS内存优化/" data-id="cixndbiyd00013fs6n2sihdam" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -848,88 +306,15 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleInstance</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="title">SingleInstance</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleInstance <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> SingleInstanceHolder.sInstance;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleInstanceHolder</span> </span>&#123;</div><div class="line"></div><div class="line">      <span class="keyword">private</span> <span class="keyword">static</span> SingleInstance sInstance = <span class="keyword">new</span> SingleInstance();</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在Java中，类的静态初始化会在类被加载时触发，我们利用这个原理，可以实现利用这一特性，结合内部类，可以实现上面的代码，进行懒汉式创建实例。</p>
 <p>关于单例，可以详细参考文章单例这种设计模式</p>
-<h3 id="避免进行隐式装箱"><a href="#避免进行隐式装箱" class="headerlink" title="避免进行隐式装箱"></a>避免进行隐式装箱</h3><p>自动装箱是Java 5 引入的一个特性，即自动将原始类型的数据转换成对应的引用类型，比如将int转为Integer等。</p>
-<p>这种特性，极大的减少了编码时的琐碎工作，但是稍有不注意就可能创建了不必要的对象了。比如下面的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Integer sum = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1000</span>; i&lt;<span class="number">5000</span>; i++)&#123;</div><div class="line"></div><div class="line">   sum+=i;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的代码sum+=i可以看成sum = sum + i，但是+这个操作符不适用于Integer对象，首先sum进行自动拆箱操作，进行数值相加操作，最后发生自动装箱操作转换成Integer对象。其内部变化如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> result = sum.intValue() + i;</div><div class="line"></div><div class="line">Integer sum = <span class="keyword">new</span> Integer(result);</div></pre></td></tr></table></figure>
-<p>由于我们这里声明的sum为Integer类型，在上面的循环中会创建将近4000个无用的Integer对象，在这样庞大的循环中，会降低程序的性能并且加重了垃圾回收的工作量。因此在我们编程时，需要注意到这一点，正确地声明变量类型，避免因为自动装箱引起的性能问题。</p>
-<p>另外，当将原始数据类型的值加入集合中时，也会发生自动装箱，所以这个过程中也是有对象创建的。如有需要避免这种情况，可以选择 SparseArray , SparseBooleanArray , SparseLongArray 等容器。</p>
-<p>关于Java中的自动装箱与拆箱，参考文章 <a href="http://www.open-open.com/lib/view/open1470192541733.html" target="_blank" rel="external">Java中的自动装箱与拆箱</a></p>
-<h3 id="谨慎选用容器"><a href="#谨慎选用容器" class="headerlink" title="谨慎选用容器"></a>谨慎选用容器</h3><p>Java和Android提供了很多编辑的容器集合来组织对象。比如 ArrayList , ContentValues , HashMap 等。</p>
-<p>然而，这样容器虽然使用起来方便，但也存在一些问题，就是他们会自动扩容，这其中不是创建新的对象，而是创建一个更大的容器对象。这就意味这将占用更大的内存空间。</p>
-<p>以HashMap为例，当我们put key和value时，会检测是否需要扩容，如需要则双倍扩容</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</div><div class="line"><span class="keyword">if</span> (key == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">return</span> putValueForNullKey(value);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//some code here</span></div><div class="line"></div><div class="line">    <span class="comment">// No entry for (non-null) key is present; create one</span></div><div class="line">    modCount++;</div><div class="line">    <span class="keyword">if</span> (size++ &gt; threshold) &#123;</div><div class="line">        tab = doubleCapacity();</div><div class="line">        index = hash &amp; (tab.length - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    addNewEntry(key, value, hash, index);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>关于扩容的问题，通常有如下几种方法</p>
-<p>预估一个较大的容量值，避免多次扩容<br>寻找替代的数据结构，确保做到时间和空间的平衡</p>
-<h3 id="用好LaunchMode"><a href="#用好LaunchMode" class="headerlink" title="用好LaunchMode"></a>用好LaunchMode</h3><p>提到LaunchMode必然和Activity有关系。正常情况下我们在manifest中声明Activity，如果不设置LaunchMode就使用默认的standard模式。</p>
-<p>一旦设置成standard，每当有一次Intent请求，就会创建一个新的Activity实例。举个例子，如果有10个撰写邮件的Intent，那么就会创建10个ComposeMailActivity的实例来处理这些Intent。结果很明显，这种模式会创建某个Activity的多个实例。</p>
-<p>如果对于一个搜索功能的Activity，实际上保持一个Activity示例就可以了，使用standard模式会造成Activity实例的过多创建，因而不好。</p>
-<p>确保符合常理的情况下，合理的使用LaunchMode，减少Activity的创建。</p>
-<p>详细了解LaunchMode，阅读文章 <a href="http://www.open-open.com/lib/view/open1470193177471.html" target="_blank" rel="external">深入讲解Android中Activity launchMode</a></p>
-<h3 id="Activity处理onConfigurationChanged"><a href="#Activity处理onConfigurationChanged" class="headerlink" title="Activity处理onConfigurationChanged"></a>Activity处理onConfigurationChanged</h3><p>这又是一个关于Activity对象创建相关的，因为Activity创建的成本相对其他对象要高很多。</p>
-<p>默认情况下，当我们进行屏幕旋转时，原Activity会销毁，一个新的Activity被创建，之所以这样做是为了处理布局适应。当然这是系统默认的做法，在我们开发可控的情况下，我们可以避免重新创建Activity。</p>
-<p>以屏幕切换为例，在Activity声明时，加上</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span></span></div><div class="line"><span class="attr">android:name</span>=<span class="string">".MainActivity"</span></div><div class="line"><span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line"><span class="attr">android:theme</span>=<span class="string">"@style/AppTheme.NoActionBar"</span></div><div class="line"><span class="attr">android:configChanges</span>=<span class="string">"orientation"</span></div><div class="line">/<span class="attr">activity</span>&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>然后重写Activity的onConfigurationChanged方法</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onConfigurationChanged</span><span class="params">(Configuration newConfig)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onConfigurationChanged(newConfig);</div><div class="line"><span class="keyword">if</span> (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) &#123;</div><div class="line">    setContentView(R.layout.portrait_layout);</div><div class="line">&#125; <span class="keyword">else</span> </div><div class="line">  <span class="keyword">if</span> (newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE) &#123;</div><div class="line">    setContentView(R.layout.landscape_layout);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="注意字符串拼接"><a href="#注意字符串拼接" class="headerlink" title="注意字符串拼接"></a>注意字符串拼接</h3><p>字符串这个或许是最不起眼的一项了。这里主要讲的是字符串的拼接</p>
-<p><strong>Log.i(LOGTAG, “onCreate bundle=” + savedInstanceState);</strong></p>
-<p>这应该是我们最常见的打log的方式了，然而字符串的拼接内部实际是生成StringBuilder对象，然后挨个进行append，直至最后调用toString方法的过程。</p>
-<p>下面是一段代码循环的代码，这明显是很不好的，因为这其中创建了很多的StringBuilder对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">implicitUseStringBuilder</span><span class="params">(String[] values)</span> </span>&#123;</div><div class="line"></div><div class="line">  String result = <span class="string">""</span>;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; values.length; i ++) &#123;</div><div class="line">      result += values[i];</div><div class="line">  &#125;</div><div class="line">  System.out.println(result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>降低字符串拼接的方法有</p>
-<ul>
-<li>使用String.format替换</li>
-</ul>
-<ul>
-<li>如果是循环拼接，建议显式在循环外部创建StringBuilder使用</li>
-</ul>
-<p>关于字符串拼接的原理考究，可以参考这篇文章 <a href="http://www.open-open.com/lib/view/open1470193487456.html" target="_blank" rel="external">Java细节：字符串的拼接</a></p>
-<h3 id="减少布局层级"><a href="#减少布局层级" class="headerlink" title="减少布局层级"></a>减少布局层级</h3><p>布局层级过多，不仅导致inflate过程耗时，还多创建了多余的辅助布局。所以减少辅助布局还是很有必要的。可以尝试其他布局方式或者自定义视图来解决这类的问题。</p>
-<p>提前检查，减少不必要的异常<br>异常对于程序来说，在平常不过了，然后其实异常的代码很高的，因为它需要收集现场数据stacktrace。但是还是有一些避免异常抛出的措施的，那就是做一些提前检查。</p>
-<p>比如，我们想要打印一个文件的每一行字符串，没做检查的代码如下，是存在FileNotFoundException抛出可能的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printFileByLine</span><span class="params">(String filePath)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="string">"textfile.txt"</span>);</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(inputStream));</div><div class="line">        String strLine;</div><div class="line">        <span class="comment">//Read File Line By Line</span></div><div class="line">        <span class="keyword">while</span> ((strLine = br.readLine()) != <span class="keyword">null</span>)   &#123;</div><div class="line">            <span class="comment">// Print the content on the console</span></div><div class="line">            System.out.println (strLine);</div><div class="line">        &#125;</div><div class="line">        br.close();</div><div class="line">    &#125; <span class="keyword">catch</span>(FileNotFoundException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果我们进行文件是否存在的检查，抛出FileNotFoundException的概率会减少很多，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printFileByLine</span><span class="params">(String filePath)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!<span class="keyword">new</span> File(filePath).exists()) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="string">"textfile.txt"</span>);</div><div class="line">            BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(inputStream));</div><div class="line">            String strLine;</div><div class="line">            <span class="comment">//Read File Line By Line</span></div><div class="line">            <span class="keyword">while</span> ((strLine = br.readLine()) != <span class="keyword">null</span>)   &#123;</div><div class="line">                <span class="comment">// Print the content on the console</span></div><div class="line">                System.out.println (strLine);</div><div class="line">            &#125;</div><div class="line">            br.close();</div><div class="line">        &#125; <span class="keyword">catch</span>(FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>上述的检查是一个不错的编码技巧，建议采纳。</p>
-<h3 id="不要过多创建线程"><a href="#不要过多创建线程" class="headerlink" title="不要过多创建线程"></a>不要过多创建线程</h3><p>在Android中，我们应该尽量避免在主线程中执行耗时的操作，因而需要使用其他线程。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">testThread</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">new</span> Thread() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.run();</div><div class="line">            <span class="comment">//do some io work</span></div><div class="line">        &#125;</div><div class="line">    &#125;.start();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>虽然这些能工作，但是创建线程的代价远比普通对象要高的多，建议使用HandlerThread或者ThreadPool做替换。</p>
-<p>关于HandlerThread的文章， <a href="http://www.open-open.com/lib/view/open1447122991803.html" target="_blank" rel="external">详解 Android 中的 HandlerThread</a></p>
-<p>关于工作者线程,可以参考文章 <a href="http://www.open-open.com/lib/view/open1470193661686.html" target="_blank" rel="external">关于Android中工作者线程的思考</a></p>
-<h3 id="使用注解替代枚举"><a href="#使用注解替代枚举" class="headerlink" title="使用注解替代枚举"></a>使用注解替代枚举</h3><p>枚举是我们经常使用的一种用作值限定的手段，使用枚举比单纯的常量约定要靠谱。然后枚举的实质还是创建对象。好在Android提供了相关的注解，使得值限定在编译时进行，进而减少了运行时的压力。相关的注解为IntDef和StringDef。</p>
-<p>如下以IntDef为例，介绍如何使用</p>
-<p>在一个文件中如下声明</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConstants</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> STATE_OPEN = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> STATE_CLOSE = <span class="number">1</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> STATE_BROKEN = <span class="number">2</span>;</div><div class="line">    </div><div class="line">    <span class="meta">@IntDef</span>(&#123;STATE_OPEN, STATE_CLOSE, STATE_BROKEN&#125;)</div><div class="line">    <span class="keyword">public</span> <span class="meta">@interface</span>  DoorState &#123;&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后设置书写这样的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setDoorState</span><span class="params">(@AppConstants.DoorState <span class="keyword">int</span> state)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//some code</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当调用方法时只能使用 STATE_OPEN ， STATE_CLOSE 和 STATE_BROKEN 。使用其他值会导致编译提醒和警告。</p>
-<p>想要深入了解注解，可以阅读详解Java中的注解</p>
-<h3 id="选用对象池"><a href="#选用对象池" class="headerlink" title="选用对象池"></a>选用对象池</h3><p>在Android中有很多池的概念，如线程池，连接池。包括我们很长用的Handler.Message就是使用了池的技术。</p>
-<p>比如，我们想要使用Handler发送消息，可以使用 Message msg = new Message() ，也可以使用 Message msg = handler.obtainMessage() 。使用池并不会每一次都创建新的对象，而是优先从池中取对象。</p>
-<p>使用对象池需要需要注意几点</p>
-<ul>
-<li>将对象放回池中，</li>
-<li>注意初始化对象的数据，</li>
-<li>防止存在脏数据</li>
-</ul>
-<ul>
-<li>合理控制池的增长，避免过大，导致很多对象处于闲置状态</li>
-</ul>
-<h3 id="谨慎初始化Application"><a href="#谨慎初始化Application" class="headerlink" title="谨慎初始化Application"></a>谨慎初始化Application</h3><p>Android应用可以支持开启多个进程。 通常的做法是这样</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">".NetworkService"</span></span></div><div class="line">    <span class="attr">android:process</span>=<span class="string">":network"</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure>
-<p>通常我们在Application的 onCreate 方法中会做很多初始化操作,但是每个进程启动都需要执行到这个onCreate方法,为了避免不必要的初始化,建议按照进程(通过判断当前进程名)对应初始化.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String LOGTAG = <span class="string">"MyApplication"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</div><div class="line">        String currentProcessName = getCurrentProcessName();</div><div class="line">        Log.i(LOGTAG, <span class="string">"onCreate currentProcessName="</span> + currentProcessName);</div><div class="line">        <span class="keyword">super</span>.onCreate();</div><div class="line">        <span class="keyword">if</span> (getPackageName().equals(currentProcessName)) &#123;</div><div class="line">            <span class="comment">//init for default process</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (currentProcessName.endsWith(<span class="string">":network"</span>)) &#123;</div><div class="line">            <span class="comment">//init for netowrk process</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getCurrentProcessName</span><span class="params">()</span> </span>&#123;</div><div class="line">        String currentProcessName = <span class="string">""</span>;</div><div class="line">        <span class="keyword">int</span> pid = android.os.Process.myPid();</div><div class="line">        ActivityManager manager = (ActivityManager) <span class="keyword">this</span>.getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">        <span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo processInfo : manager.getRunningAppProcesses()) &#123;</div><div class="line">            <span class="keyword">if</span> (processInfo.pid == pid) &#123;</div><div class="line">                currentProcessName = processInfo.processName;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> currentProcessName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的一些知识就是关于Android中如何避免创建多余对象的总结.欢迎提出意见和观点,共同进步.</p>
-<p><a href="http://www.open-open.com/lib/view/open1470192316768.html" target="_blank" rel="external">来源</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/08/04/如何在-Android-中避免创建不必要的对象/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/04/如何在-Android-中避免创建不必要的对象/" data-id="cixn8mohi000f2ds6lox64xnb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/04/如何在-Android-中避免创建不必要的对象/" data-id="cixndbiyu000e3fs6w4rmgzhj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -970,42 +355,15 @@
         <h2 id="如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion"><a href="#如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion" class="headerlink" title="如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion"></a>如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</h2><p><img src="http://static.open-open.com/lib/uploadImg/20160120/20160120092409_585.png" alt="Android Version"></p>
 <p>当你发布一个应用之后，(取决于具体的发布时间)可能没过几个月 Android 系统就发布了一个新版本。这对你的应用意味着什么，所有东西都不能用了？</p>
 <p>别担心，向前兼容是 Android 非常关注的事情。用户在升级到新版 Android 的时候，用以前版本的 SDK 构建的现有应用应该不会出问题。这就是 compileSdkVersion, minSdkVersion 和 targetSdkVersion 的作用：他们分别控制可以使用哪些 API ，要求的 API 级别是什么，以及应用的兼容模式。</p>
-<h3 id="compileSdkVersion"><a href="#compileSdkVersion" class="headerlink" title="compileSdkVersion"></a>compileSdkVersion</h3><p>compileSdkVersion 告诉 Gradle 用哪个 Android SDK 版本编译你的应用。使用任何新添加的 API 就需要使用对应 Level 的 Android SDK。</p>
-<p>需要强调的是修改 compileSdkVersion 不会改变运行时的行为。当你修改了 compileSdkVersion 的时候，可能会出现新的编译警告、编译错误，但新的 compileSdkVersion 不会被包含到 APK 中：它纯粹只是在编译的时候使用。（你真的应该修复这些警告，他们的出现一定是有原因的）</p>
-<p>因此我们强烈推荐总是使用最新的 SDK 进行编译。在现有代码上使用新的编译检查可以获得很多好处，避免新弃用的 API ，并且为使用新的 API 做好准备。</p>
-<p>注意，如果使用 Support Library ，那么使用最新发布的 Support Library 就需要使用最新的 SDK 编译。例如，要使用 23.1.1 版本的 Support Library ，compileSdkVersion 就必需至少是 23 （大版本号要一致！）。通常，新版的 Support Library 随着新的系统版本而发布，它为系统新增加的 API 和新特性提供兼容性支持。</p>
-<h3 id="minSdkVersion"><a href="#minSdkVersion" class="headerlink" title="minSdkVersion"></a>minSdkVersion</h3><p>如果 compileSdkVersion 设置为可用的最新 API，那么 minSdkVersion 则是应用可以运行的最低要求。minSdkVersion 是 Google Play 商店用来判断用户设备是否可以安装某个应用的标志之一。</p>
-<p>在开发时 minSdkVersion 也起到一个重要角色：lint 默认会在项目中运行，它在你使用了高于 minSdkVersion  的 API 时会警告你，帮你避免调用不存在的 API 的运行时问题。如果只在较高版本的系统上才使用某些 API，通常使用运行时检查系统版本的方式解决。</p>
-<p>请记住，你所使用的库，如 Support Library 或 Google Play services，可能有他们自己的 minSdkVersion 。你的应用设置的 minSdkVersion 必需大于等于这些库的 minSdkVersion 。例如有三个库，它们的 minSdkVersion 分别是 4, 7 和 9 ，那么你的 minSdkVersion  必需至少是 9 才能使用它们。在少数情况下，你仍然想用一个比你应用的 minSdkVersion 还高的库（处理所有的边缘情况，确保它只在较新的平台上使用），你可以使用 tools:overrideLibrary 标记，但请做彻底的测试！</p>
-<p>当你决定使用什么 minSdkVersion 时候，你应该参考当前的 Android 分布统计，它显示了最近 7 天所有访问 Google Play 的设备信息。他们就是你把应用发布到 Google Play 时的潜在用户。最终这是一个商业决策问题，取决于为了支持额外 3% 的设备，确保最佳体验而付出的开发和测试成本是否值得。</p>
-<p>当然，如果某个新的 API 是你整个应用的关键，那么确定 minSdkVersion 的值就比较容易了。不过要记得 14 亿设备中的 0.7％ 也是个不小的数字。</p>
-<h3 id="targetSdkVersion"><a href="#targetSdkVersion" class="headerlink" title="targetSdkVersion"></a>targetSdkVersion</h3><p>三个版本号中最有趣的就是 targetSdkVersion 了。 targetSdkVersion 是 Android 提供向前兼容的主要依据，在应用的 targetSdkVersion 没有更新之前系统不会应用最新的行为变化。这允许你在适应新的行为变化之前就可以使用新的 API （因为你已经更新了 compileSdkVersion 不是吗？）。</p>
-<p>targetSdkVersion 所暗示的许多行为变化都记录在 VERSION_CODES 文档中了，但是所有恐怖的细节也都列在每次发布的平台亮点中了，在这个 API Level 表中可以方便地找到相应的链接。</p>
-<p>例如，Android 6.0 变化文档中谈了 target 为 API 23 时会如何把你的应用转换到运行时权限模型上，Android 4.4 行为变化阐述了 target 为 API 19 及以上时使用 set() 和 setRepeating() 设置 alarm 会有怎样的行为变化。</p>
-<p>由于某些行为的变化对用户是非常明显的（弃用的 menu 按钮，运行时权限等），所以将 target 更新为最新的 SDK 是所有应用都应该优先处理的事情。但这不意味着你一定要使用所有新引入的功能，也不意味着你可以不做任何测试就盲目地更新 targetSdkVersion ，请一定在更新 targetSdkVersion 之前做测试！你的用户会感谢你的。</p>
-<h3 id="Gradle-和-SDK-版本"><a href="#Gradle-和-SDK-版本" class="headerlink" title="Gradle 和 SDK 版本"></a>Gradle 和 SDK 版本</h3><p>所以设置正确的 compileSdkVersion, minSdkVersion 和 targetSdkVersion 很重要。如你所想， Gradle 和 Android Studio 都在构建系统中集成了它们。在你的模块的 build.gradle 文件中（也可以在 Android Studio 的项目结构选项中）设置：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line"></div><div class="line">  compileSdkVersion <span class="number">23</span></div><div class="line"></div><div class="line">  buildToolsVersion <span class="string">"23.0.1"</span></div><div class="line"></div><div class="line">  defaultConfig &#123;</div><div class="line"></div><div class="line">    applicationId <span class="string">"com.example.checkyourtargetsdk"</span></div><div class="line">    minSdkVersion <span class="number">7</span></div><div class="line">    targetSdkVersion <span class="number">23</span></div><div class="line">    versionCode <span class="number">1</span></div><div class="line">    versionName “<span class="number">1.0</span>”</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>编译时用到的 compileSdkVersion 是和构建工具版本一起设置的 Android 设置之一。其他两个稍有不同，他们在构建变体(build variant)的那里声明。defaultConfig 是所有构建变体的基础，也是设置这些默认值的地方。你可以想象在一个更复杂的系统中，应用的某些版本可能会有不同的 minSdkVersion 。</p>
-<p>minSdkVersion 和 targetSdkVersion 与 compileSdkVersion 的另一个不同之处是它们会被包含进最终的 APK 文件中，如果你查看生成的 AndroidManifest.xml 文件，你会看到类似下面这样的标签：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-sdk android:targetSdkVersion=<span class="string">"23"</span> android:minSdkVersion=<span class="string">"7"</span> /&gt;</div></pre></td></tr></table></figure>
-<p>如果你在 manifest 文件中手工设置，你会发现 Gradle 在构建时会忽略它们（尽管其它构建系统可能会明确依赖它们）。</p>
-<p>综合来看</p>
-<p>如果你按照上面示例那样配置，你会发现这三个值的关系是：</p>
-<blockquote>
-<p>minSdkVersion &lt;= targetSdkVersion &lt;= compileSdkVersion</p>
-</blockquote>
-<p>这种直觉是合理的，如果 compileSdkVersion 是你的最大值，minSdkVersion 是最小值，那么最大值必需至少和最小值一样大且 target 必需在二者之间。</p>
-<p>理想上，在稳定状态下三者的关系应该更像这样：</p>
-<blockquote>
-<p>minSdkVersion (lowest possible) &lt;= targetSdkVersion == compileSdkVersion (latest SDK)</p>
-</blockquote>
-<p>用较低的 minSdkVersion 来覆盖最大的人群，用最新的 SDK 设置 target 和 compile 来获得最好的外观和行为。</p>
-<p><a href="http://www.open-open.com/lib/view/open1453253049558.html" target="_blank" rel="external">摘录自&lt;深度开源 OPEN经验&gt; 作者：Ian Lake，Google Android 推广工程师；翻译：韩国恺。原文链接地址请点击</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/" data-id="cixn8mohk000h2ds6f8h4aosy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/" data-id="cixndbiyw000g3fs6w12ito0e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -1051,37 +409,15 @@
 <li>存放基本类型的变量数据，局部变量和对象的引用。</li>
 </ul>
 <h4 id="数据共享"><a href="#数据共享" class="headerlink" title="数据共享"></a>数据共享</h4><p>​    这个数据共享主要也是由于引用的是地址来决定的，举个例子：char str1=”str1”;char str2=”str1”;这时候再次声明Str2，同时指定两个不同的引用而相同的变量;这时候并不需要重新开辟另外一份内存，只需要两者都指向相同的地址就可以了。这样数据共享带来的就是内存上的节省。</p>
-<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>​    存放的主要是动态生成的对象和数组（比如存放所有new出来的对象）。注意创建出来的对象只包含属于各自的成员变量，并不包括成员方法。因为同一个类的对象拥有各自的成员变量，存储在各自的堆中，但是他们共享该类的方法，并不是每创建一个对象就把成员方法复制一次。从这个存放的数据可以知道，这个堆里面存放的是，在程序运行的时候生成的一些数据。如：对象的定义和变量的定义。</p>
-<ul>
-<li><p>Java 堆是被所有线程共享的一块内存区域，在虚拟机启动的时候被创建；</p>
-</li>
-<li><p>Java 堆是垃圾收集的主要区域，因此很多时候被称为”GC”堆。</p>
-<p>现在垃圾收集一般是按照分代收集的的所以java堆还可以细分为：新生代、老年代；再细分就是Eden空间 、From Survivor 空间、ToSurvivor 空间。</p>
-</li>
-</ul>
-<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>​    用来存放已被加载的类的信息、常量、静态变量、即时编译器编译后的代码（在Java中static的作用就是说明该变量，方法，代码块是属于类的还是属于实例的）。</p>
-<h3 id="定义和声明"><a href="#定义和声明" class="headerlink" title="定义和声明"></a>定义和声明</h3><p>​    这里需要对这两个动词进行一些说明。因为在平时过程中，我是对这两个概念比较模糊。一说就是定义声明了一个变量。但是事实上确实不一样的。声明就只是定义这个变量的名字，告诉编译器会有这么一个变量。而定义就不同了，定义就是在声明之后对变量进行初始化、设置一个初始值的过程。如：int i；int i=1；就是这个区别。</p>
-<p>​    而在java变量的声明过程中，是不允许没有初始化变量的。</p>
-<h3 id="Data-segment"><a href="#Data-segment" class="headerlink" title="Data segment"></a>Data segment</h3><p>​    这个包括静态域和常量池。</p>
-<h4 id="静态域"><a href="#静态域" class="headerlink" title="静态域"></a>静态域</h4><p>​    存放在对象中的静态变量。</p>
-<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><p>​    这个主要是在编译完成后，存放在.class文件中（code segment）。包括一些基本的数据类型和相应的类的接口和声明。换言之就是在编译后，程序中经常使用的不会改变的。</p>
-<p>​    JVM为每个已加载的类型维护一个常量池，常量池就是这个类型用到的常量的一个有序集合。包括直接常量(基本类型，String)和对其他类型、方法、字段的符号引用(1)。池中的数据和数组一样通过索引访问。由于常量池包含了一个类型所有的对其他类型、方法、字段的符号引用，所以常量池在Java的动态链接中起了核心作用。<strong>常量池存在于方法区（Method Area）</strong>。</p>
-<ul>
-<li>存放字符串常量和基本类型变量，比如String str=”www”; 实际上”www”是在常量池里边。</li>
-<li>常量池是在方法区中而不是堆内存中。</li>
-<li>Java的8种基本类型(Byte, Short, Integer, Long, Character, Boolean, Float, Double), 除Float和Double以外, 其它六种都实现了常量池, 但是它们只在大于等于-128并且小于等于127时才使用常量池。而如果大于127 或小于-128 则不会使用常量池所以会直接在堆内存中创建对象。</li>
-</ul>
-<h3 id="I-代码段"><a href="#I-代码段" class="headerlink" title="I 代码段"></a>I 代码段</h3><p>​    用来存放从硬盘上读取的源程序代码。</p>
-<h3 id="内存表示图如上："><a href="#内存表示图如上：" class="headerlink" title="内存表示图如上："></a>内存表示图如上：</h3><p><img src="/images/memory.png" alt="memory表示图"></p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Code segment：</div><div class="line">Arraylist list[] = <span class="keyword">new</span> Arraylist[<span class="number">3</span>]；</div><div class="line"></div><div class="line">arraylist[<span class="number">0</span>] = <span class="number">2</span>;</div><div class="line">arraylist[<span class="number">1</span>] = <span class="number">3</span>;</div><div class="line">arraylist[<span class="number">2</span>] = <span class="number">4</span>;</div></pre></td></tr></table></figure>
-<p>因为list[]是一个变量，这是一个声明我们放到栈中。</p>
-<p>而后面每个数组实例化出来的变量，所以放到堆中。</p>
-<p>而实实在在存在的变量的值都是常量，所以放在常量池中，也就是上图中的data   segment。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/07/27/Java-中的内存分析/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/27/Java-中的内存分析/" data-id="cixn8mohg000b2ds60r4r9ymv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/07/27/Java-中的内存分析/" data-id="cixndbiys000a3fs6z8atdthc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -1093,119 +429,11 @@
 
 
   
-    <article id="post-Android-5-0新控件简单使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/12/Android-5-0新控件简单使用/" class="article-date">
-  <time datetime="2016-07-12T09:31:25.000Z" itemprop="datePublished">2016-07-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/12/Android-5-0新控件简单使用/">Android-5-0新控件简单使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Android中RecyclerView的使用"><a href="#Android中RecyclerView的使用" class="headerlink" title="Android中RecyclerView的使用"></a>Android中RecyclerView的使用</h1><p>​    <code>RecyclerView</code>是谷歌官方在<code>android_support_v7</code>中添加的一个新控件类型。可以更方面的用来表征列表类型的数据展示类型，用来替代之前<code>ListView</code>,<code>GridView</code>等。</p>
-<p>对于它的使用来说，注意以下几点即可：</p>
-<ul>
-<li>若要控制其显示的方式，通过设置<code>LayoutManager</code></li>
-<li>若要控制Item间的间隔，通过设置<code>ItemDecoration</code></li>
-<li>若要控制Item增删的动画，通过设置<code>ItemAnimator</code></li>
-<li>若要控制点击、长按等事件，需要自己来写&gt;_&lt;</li>
-</ul>
-<p>由此看来，<code>RecyclerView</code>是一个高度可定制，解耦合的控件，它的简单使用范例如下：  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">LinearLayoutManager mLayoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</div><div class="line">mRecyclerView = findView(R.id.recyclerview);</div><div class="line"><span class="comment">//设置布局管理器</span></div><div class="line">mRecyclerView.setLayoutManager(mLayoutManager);</div><div class="line"><span class="comment">//设置适配器</span></div><div class="line">mRecyclerView.setAdapter(mAdapter);</div><div class="line"><span class="comment">//设置Item增加、移除动画</span></div><div class="line">mRecyclerView.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</div><div class="line"><span class="comment">//添加分割线</span></div><div class="line">mRecyclerView.addItemDecoration(<span class="keyword">new</span> DividerItemDecoration(</div><div class="line">                getActivity(), DividerItemDecoration.HORIZONTAL_LIST));</div></pre></td></tr></table></figure>
-<p><code>RecyclerView</code>里的<code>LayoutManager</code>有3中类型，其中<code>LinearLayoutManager</code>是默认的。</p>
-<ul>
-<li><code>LinearLayoutManager</code>线性管理器，支持横向、纵向。</li>
-<li><code>GridLayoutManager</code>网格布局管理器</li>
-<li><code>StaggeredGridLayoutManager</code>瀑布流式管理器</li>
-</ul>
-<p>详情可以参考：  <a href="http://blog.csdn.net/lmj623565791/article/details/45059587" target="_blank" rel="external"> Android 自定义RecyclerView 实现真正的Gallery效果–鸿祥</a></p>
-<h1 id="Android中CardView的使用"><a href="#Android中CardView的使用" class="headerlink" title="Android中CardView的使用"></a>Android中CardView的使用</h1><p><code>CardView</code>同样是谷歌官方在<code>android_support_v7</code>中添加的一个新控件类型。它继承于<code>FrameLayout</code>，同时还有几个特殊的属性：</p>
-<ul>
-<li>API21(Android L)之上拥有elevation属性，意为它的z轴阴影，只有L平台有效，只能通过xml中的elevation属性指定；</li>
-<li>其余（2.0以上）有属性cardBackgroundColor，意为CardView的卡片颜色，只能通过xml的cardBackgroundColor进行指定；</li>
-<li>其余（2.0以上）有属性cardConerRadius，意为CardView卡片的四角圆角矩形程度，单位dimen（dp px sp），可以通过xml指定，也可以通过代码中的setRadius指定。</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"  </div><div class="line">    xmlns:app="http://schemas.android.com/apk/res-auto"  </div><div class="line">    android:id="@+id/cardview"  </div><div class="line">    app:cardCornerRadius="8dp"  </div><div class="line">    app:cardBackgroundColor="@color/black"  </div><div class="line">    android:layout_margin="8dp"  </div><div class="line">    android:layout_height="80dp"  </div><div class="line">    android:layout_width="match_parent"&gt;  </div><div class="line">  </div><div class="line">    &lt;TextView  </div><div class="line">        android:text="TextView in CardView"  </div><div class="line">        android:layout_gravity="center"  </div><div class="line">        android:textSize="26sp"  </div><div class="line">        android:textColor="@color/l_white"  </div><div class="line">        android:layout_width="wrap_content"  </div><div class="line">        android:layout_height="wrap_content" /&gt;  </div><div class="line">&lt;/android.support.v7.widget.CardView&gt;</div></pre></td></tr></table></figure>
-<p>注意使用<code>CardView</code>会产生层级关系。</p>
-<p>同时应该注意设置属性</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:foreground=<span class="string">"?android:attr/selectableItemBackground"</span></div></pre></td></tr></table></figure>
-<p>之后，CardView就有了水波纹效果。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/12/Android-5-0新控件简单使用/" data-id="cixn8moh100012ds616gp9pxd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
 
 
-  
-    <article id="post-Android知识简单总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/11/Android知识简单总结/" class="article-date">
-  <time datetime="2016-07-11T09:28:36.000Z" itemprop="datePublished">2016-07-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/11/Android知识简单总结/">Android知识简单总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本文对Android的基本知识进行简单梳理"><a href="#本文对Android的基本知识进行简单梳理" class="headerlink" title="本文对Android的基本知识进行简单梳理"></a>本文对Android的基本知识进行简单梳理</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/11/Android知识简单总结/" data-id="cixn8moh500032ds6sy7c3yfd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">

@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档: 2017/1 | Coding Life</title>
+  <title>Coding Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录编程道路上的心得 偶记日常生活中的感觉">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Coding Life">
-<meta property="og:url" content="http://yoursite.com/archives/2017/01/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Coding Life">
 <meta property="og:description" content="记录编程道路上的心得 偶记日常生活中的感觉">
 <meta name="twitter:card" content="summary">
@@ -79,38 +79,109 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/01/06/Hexo安装过程简单总结/" class="archive-article-date">
-  <time datetime="2017-01-06T08:30:36.000Z" itemprop="datePublished">1月 6</time>
+    <article id="post-Android-5-0新控件简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/12/Android-5-0新控件简单使用/" class="article-date">
+  <time datetime="2016-07-12T09:31:25.000Z" itemprop="datePublished">2016-07-12</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/Hexo安装过程简单总结/">Hexo安装过程简单总结</a>
+      <a class="article-title" href="/2016/07/12/Android-5-0新控件简单使用/">Android-5-0新控件简单使用</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Android中RecyclerView的使用"><a href="#Android中RecyclerView的使用" class="headerlink" title="Android中RecyclerView的使用"></a>Android中RecyclerView的使用</h1><p>​    <code>RecyclerView</code>是谷歌官方在<code>android_support_v7</code>中添加的一个新控件类型。可以更方面的用来表征列表类型的数据展示类型，用来替代之前<code>ListView</code>,<code>GridView</code>等。</p>
+<p>对于它的使用来说，注意以下几点即可：</p>
+<ul>
+<li>若要控制其显示的方式，通过设置<code>LayoutManager</code></li>
+<li>若要控制Item间的间隔，通过设置<code>ItemDecoration</code></li>
+<li>若要控制Item增删的动画，通过设置<code>ItemAnimator</code></li>
+<li>若要控制点击、长按等事件，需要自己来写&gt;_&lt;</li>
+</ul>
+<p>由此看来，<code>RecyclerView</code>是一个高度可定制，解耦合的控件，它的简单使用范例如下：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">LinearLayoutManager mLayoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</div><div class="line">mRecyclerView = findView(R.id.recyclerview);</div><div class="line"><span class="comment">//设置布局管理器</span></div><div class="line">mRecyclerView.setLayoutManager(mLayoutManager);</div><div class="line"><span class="comment">//设置适配器</span></div><div class="line">mRecyclerView.setAdapter(mAdapter);</div><div class="line"><span class="comment">//设置Item增加、移除动画</span></div><div class="line">mRecyclerView.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</div><div class="line"><span class="comment">//添加分割线</span></div><div class="line">mRecyclerView.addItemDecoration(<span class="keyword">new</span> DividerItemDecoration(</div><div class="line">                getActivity(), DividerItemDecoration.HORIZONTAL_LIST));</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2016/07/12/Android-5-0新控件简单使用/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/12/Android-5-0新控件简单使用/" data-id="cixndbiyo00073fs6133jnasz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
+
+
   
+    <article id="post-Android知识简单总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/11/Android知识简单总结/" class="article-date">
+  <time datetime="2016-07-11T09:28:36.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    </div></section>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/11/Android知识简单总结/">Android知识简单总结</a>
+    </h1>
   
 
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文对Android的基本知识进行简单梳理"><a href="#本文对Android的基本知识进行简单梳理" class="headerlink" title="本文对Android的基本知识进行简单梳理"></a>本文对Android的基本知识进行简单梳理</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/11/Android知识简单总结/" data-id="cixndbiyk00033fs64zjnbi8p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 </section>
         
           <aside id="sidebar">
