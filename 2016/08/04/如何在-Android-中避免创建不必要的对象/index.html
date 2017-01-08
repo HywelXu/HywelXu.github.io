@@ -106,10 +106,12 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
     
     <div class="article-entry" itemprop="articleBody">
       
-      <div id="toc" class="toc-article">
-  <strong class="toc-title"></strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用单例"><span class="toc-number">1.</span> <span class="toc-text">使用单例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#避免进行隐式装箱"><span class="toc-number">2.</span> <span class="toc-text">避免进行隐式装箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谨慎选用容器"><span class="toc-number">3.</span> <span class="toc-text">谨慎选用容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用好LaunchMode"><span class="toc-number">4.</span> <span class="toc-text">用好LaunchMode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity处理onConfigurationChanged"><span class="toc-number">5.</span> <span class="toc-text">Activity处理onConfigurationChanged</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意字符串拼接"><span class="toc-number">6.</span> <span class="toc-text">注意字符串拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减少布局层级"><span class="toc-number">7.</span> <span class="toc-text">减少布局层级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要过多创建线程"><span class="toc-number">8.</span> <span class="toc-text">不要过多创建线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用注解替代枚举"><span class="toc-number">9.</span> <span class="toc-text">使用注解替代枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选用对象池"><span class="toc-number">10.</span> <span class="toc-text">选用对象池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谨慎初始化Application"><span class="toc-number">11.</span> <span class="toc-text">谨慎初始化Application</span></a></li></ol>
-        </div>
+      
+    <div id="toc" class="toc-article">
+      <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用单例"><span class="toc-number">1.</span> <span class="toc-text">使用单例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#避免进行隐式装箱"><span class="toc-number">2.</span> <span class="toc-text">避免进行隐式装箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谨慎选用容器"><span class="toc-number">3.</span> <span class="toc-text">谨慎选用容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用好LaunchMode"><span class="toc-number">4.</span> <span class="toc-text">用好LaunchMode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity处理onConfigurationChanged"><span class="toc-number">5.</span> <span class="toc-text">Activity处理onConfigurationChanged</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意字符串拼接"><span class="toc-number">6.</span> <span class="toc-text">注意字符串拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#减少布局层级"><span class="toc-number">7.</span> <span class="toc-text">减少布局层级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要过多创建线程"><span class="toc-number">8.</span> <span class="toc-text">不要过多创建线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用注解替代枚举"><span class="toc-number">9.</span> <span class="toc-text">使用注解替代枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选用对象池"><span class="toc-number">10.</span> <span class="toc-text">选用对象池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谨慎初始化Application"><span class="toc-number">11.</span> <span class="toc-text">谨慎初始化Application</span></a></li></ol>
+    </div>
+  
         <p>在编程开发中，内存的占用是我们经常要面对的现实，通常的内存调优的方向就是尽量减少内存的占用。这其中避免创建不必要的对象是一项重要的方面。</p>
 <p>Android设备不像PC那样有着足够大的内存，而且单个App占用的内存实际上是比较小的。所以避免创建不必要的对象对于Android开发尤为重要。</p>
 <p>本文会介绍一些常见的避免创建对象的场景和方法，其中有些属于微优化，有的属于编码技巧，当然也有确实能够起到显著效果的方法。</p>
@@ -200,7 +202,7 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/04/如何在-Android-中避免创建不必要的对象/" data-id="cixo3nhke000grms6qlal4nuq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/04/如何在-Android-中避免创建不必要的对象/" data-id="cixo4v7zs000df4s6fj4v5bgc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -239,7 +241,7 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding-Note/">Coding,Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding-Note/">Coding,Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other-Weex/">Other,Weex</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a></li></ul>
     </div>
   </div>
 
@@ -281,6 +283,10 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
       <ul>
         
           <li>
+            <a href="/2017/01/08/Mac安装weex/">Mac安装weex</a>
+          </li>
+        
+          <li>
             <a href="/2017/01/06/Hexo安装过程简单总结/">Hexo安装过程简单总结</a>
           </li>
         
@@ -294,10 +300,6 @@ Android设备不像PC那样有着足够大的内存，而且单个App占用的�
         
           <li>
             <a href="/2016/08/04/如何在-Android-中避免创建不必要的对象/">如何在 Android 中避免创建不必要的对象</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/">如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</a>
           </li>
         
       </ul>

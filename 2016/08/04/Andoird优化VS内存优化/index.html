@@ -151,10 +151,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <div id="toc" class="toc-article">
-  <strong class="toc-title"></strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、谈谈移动设备中的内存"><span class="toc-number">1.</span> <span class="toc-text">一、谈谈移动设备中的内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、采用合适的数据类型"><span class="toc-number">2.</span> <span class="toc-text">二、采用合适的数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、你需要知道的访问内存"><span class="toc-number">3.</span> <span class="toc-text">三、你需要知道的访问内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、通过垃圾收集管理内存"><span class="toc-number">4.</span> <span class="toc-text">四、通过垃圾收集管理内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、通过Java中的引用来更好的管理"><span class="toc-number">5.</span> <span class="toc-text">五、通过Java中的引用来更好的管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、通过系统的API可以了解、管理内存"><span class="toc-number">6.</span> <span class="toc-text">六、通过系统的API可以了解、管理内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、当内存少的时候可以这样处理"><span class="toc-number">7.</span> <span class="toc-text">七、当内存少的时候可以这样处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、通过5R法来对ANDROID内存进行优化："><span class="toc-number">8.</span> <span class="toc-text">八、通过5R法来对ANDROID内存进行优化：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Reuse（重用）"><span class="toc-number">9.</span> <span class="toc-text">3.Reuse（重用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Recycle（回收）"><span class="toc-number">10.</span> <span class="toc-text">4.Recycle（回收）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Review（检查）"><span class="toc-number">11.</span> <span class="toc-text">5.Review（检查）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li></ol>
-        </div>
+      
+    <div id="toc" class="toc-article">
+      <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、谈谈移动设备中的内存"><span class="toc-number">1.</span> <span class="toc-text">一、谈谈移动设备中的内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、采用合适的数据类型"><span class="toc-number">2.</span> <span class="toc-text">二、采用合适的数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、你需要知道的访问内存"><span class="toc-number">3.</span> <span class="toc-text">三、你需要知道的访问内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、通过垃圾收集管理内存"><span class="toc-number">4.</span> <span class="toc-text">四、通过垃圾收集管理内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、通过Java中的引用来更好的管理"><span class="toc-number">5.</span> <span class="toc-text">五、通过Java中的引用来更好的管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、通过系统的API可以了解、管理内存"><span class="toc-number">6.</span> <span class="toc-text">六、通过系统的API可以了解、管理内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、当内存少的时候可以这样处理"><span class="toc-number">7.</span> <span class="toc-text">七、当内存少的时候可以这样处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、通过5R法来对ANDROID内存进行优化："><span class="toc-number">8.</span> <span class="toc-text">八、通过5R法来对ANDROID内存进行优化：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Reuse（重用）"><span class="toc-number">9.</span> <span class="toc-text">3.Reuse（重用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Recycle（回收）"><span class="toc-number">10.</span> <span class="toc-text">4.Recycle（回收）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Review（检查）"><span class="toc-number">11.</span> <span class="toc-text">5.Review（检查）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  
         <p>题记</p>
 <blockquote>
 <p>应用的生存期绝大部分时间都用于处理内存中的数据，虽然我们大多数人都意识到在手机上要尽可能少使用内存，但并非所有人都认识到了内存使用对性能的影响。所以，下面我们来讨论一下。</p>
@@ -378,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/04/Andoird优化VS内存优化/" data-id="cixo3nhjv0001rms6eump9vsy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/04/Andoird优化VS内存优化/" data-id="cixo4v7za0001f4s6wn03llka" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -417,7 +419,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding-Note/">Coding,Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Coding/">Coding</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Coding-Note/">Coding,Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other-Weex/">Other,Weex</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a></li></ul>
     </div>
   </div>
 
@@ -459,6 +461,10 @@
       <ul>
         
           <li>
+            <a href="/2017/01/08/Mac安装weex/">Mac安装weex</a>
+          </li>
+        
+          <li>
             <a href="/2017/01/06/Hexo安装过程简单总结/">Hexo安装过程简单总结</a>
           </li>
         
@@ -472,10 +478,6 @@
         
           <li>
             <a href="/2016/08/04/如何在-Android-中避免创建不必要的对象/">如何在 Android 中避免创建不必要的对象</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/04/如何选择-compileSdkVersion-minSdkVersion-和-targetSdkVersion/">如何选择 compileSdkVersion, minSdkVersion 和 targetSdkVersion</a>
           </li>
         
       </ul>

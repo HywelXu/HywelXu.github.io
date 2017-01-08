@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2017/01/08/Mac%E5%AE%89%E8%A3%85weex/</loc>
+    <lastmod>2017-01-08T03:50:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac安装weex</title>
+        <pubTime>2017-01-08T03:43:40.000Z</pubTime>
+        
+        <tag>Other</tag>
+         
+         
+           
+             
+              <breadCrumb title="Other,Weex" url="http://yoursite.com/categories/Other-Weex/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://yoursite.com/2016/01/08/some-photos/</loc>
@@ -38,26 +58,6 @@
            
              
               <breadCrumb title="Other" url="http://yoursite.com/categories/Other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/07/11/Android%E7%9F%A5%E8%AF%86%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2017-01-08T02:45:01.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android知识简单总结</title>
-        <pubTime>2016-07-11T09:28:36.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Coding" url="http://yoursite.com/categories/Coding/"/>
           
         </display>
     </data>
